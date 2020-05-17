@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>NLP for Healthcare Action Conversion</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="static/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="static/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Rapid - v2.1.0
+  * Template URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header-inner-pages">
+
+    <div class="container">
+
+      <div class="logo float-left">
+        <h1 class="text-light"><a href="index.html" class="scrollto"><span>Analyse Letters</span></a></h1>
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/">Home</a></li>
+
+          <li class="drop-down"><a href="#services">Services</a>
+            <ul>
+              <li><a href="#sentimentAnalysis">Sentiment Analysis</a></li>
+              <li><a href="#entityAnalysis">Entity Analysis</a></li>
+              <li class="drop-down"><a href="#personalityAnalysis">Personality Analysis</a>
+                <ul>
+                  <li><a href="#personalityAnalysis">Openness</a></li>
+                  <li><a href="#personalityAnalysis">Conscientiousness</a></li>
+                  <li><a href="#personalityAnalysis">Extraversion</a></li>
+                  <li><a href="#personalityAnalysis">Agreeableness</a></li>
+                  <li><a href="#personalityAnalysis">Neuroticism</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="drop-down"><a href="#about">About This Project</a>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#why-us">Why choose us?</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#faq">F.A.Q</a></li>
+              <li><a href="#footer">Contact</a></li>
+            </ul>
+          </li>
+        
+        </ul>
+      </nav><!-- .main-nav -->
+
+    </div>
+  </header><!-- #header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="clearfix">
+    <div class="container d-flex h-100">
+      <div class="row justify-content-center align-self-center">
+        <div class="col-md-6 intro-info order-md-first order-last">
+          <h2><span>Natural Language Processing</span><br>for<br>Healthcare Action Conversion</h2>
+          <div>
+            <a href="#services" class="btn-get-started scrollto">Get Started</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 intro-img order-md-last order-first">
+          <img src="static/img/intro-img.svg" alt="" class="img-fluid">
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Services</h3>
+          <p>This product offers sentiment analysis, entity analysis and personality analysis.<br>Find out more about each option below.</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+              <h4 class="title"><a href="">Sentiment Analysis</a></h4>
+              <p class="description">AWS Comprehend is used to analyse the sentiment present in the text.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
+              <h4 class="title"><a href="">Entity Analysis</a></h4>
+              <p class="description">AWS Comprehend is used to identify the entities present in the text.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
+              <h4 class="title"><a href="">Personality Analysis</a></h4>
+              <p class="description">A text classifier is used to detect the presence of the Big 5 personality types in the text.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Sentiment Analysis Section ======= -->
+    <section id="sentimentAnalysis" class="services section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Sentiment Analysis</h3>
+          <p>Enter text to be analysed for its sentiment.</p>
+        </header>
+
+        <center>
+          <form id="sentiment">
+            <label><input name="input"></label>
+            <br>
+            <input type="submit" value="Analyse">
+          </form>
+        </center>
+        <span><br><span id="sentimentResult"></span></span>
+
+        <script>
+          function addSubmit(ev) {
+            ev.preventDefault();
+            var request = new XMLHttpRequest();
+            request.addEventListener('load', addShow);
+            request.open('POST', {{ url_for('sentiment')|tojson }});
+            request.send(new FormData(this));
+          }
+
+          function addShow() {
+            var data = JSON.parse(this.responseText);
+            var span = document.getElementById('sentimentResult');
+            span.innerText = data.result;
+          }
+
+          var form = document.getElementById('sentiment');
+          form.addEventListener('submit', addSubmit);
+        </script>
+
+      </div>
+    </section><!-- Sentiment Analysis Section -->
+
+    <!-- ======= Entity Analysis Section ======= -->
+    <section id="entityAnalysis" class="services section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <br>
+          <h3>Entity Analysis</h3>
+          <p>Enter text to be analysed for its entities.</p>
+        </header>
+
+        <center>
+          <form id="entity">
+            <label><input name="input2"></label>
+            <br>
+            <input type="submit" value="Analyse">
+          </form>
+        </center>
+        <span><br><span id="entityResult"></span></span>
+
+        <script>
+          function addSubmit2(ev) {
+            ev.preventDefault();
+            var request = new XMLHttpRequest();
+            request.addEventListener('load', addShow2);
+            request.open('POST', {{ url_for('entity')|tojson }});
+            request.send(new FormData(this));
+          }
+
+          function addShow2() {
+            var data = JSON.parse(this.responseText);
+            var span = document.getElementById('entityResult');
+            span.innerText = data.result;
+          }
+
+          var form = document.getElementById('entity');
+          form.addEventListener('submit', addSubmit2);
+        </script>
+
+      </div>
+    </section--><!-- Entity Analysis Section -->
+
+    <!-- ======= Personality Analysis Section ======= -->
+    <section id="personalityAnalysis" class="services section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <br>
+          <h3>Personality Analysis</h3>
+          <p>Enter text to be analysed for its personality.</p>
+        </header>
+
+      </div>
+    </section><!-- Personality Analysis Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-5 col-md-6">
+            <div class="about-img">
+              <img src="static/img/Big5.png" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-7 col-md-6">
+            <div class="about-content">
+              <h2>About This Project</h2>
+              <h3>The problem being addressed is how the language used in a letter influences the chances of the patient attending the subsequent appointment, and how the language could be adjusted using natural language processing to achieve improved attendance.</h3>
+              <p>Within the health service there is a considerable gap between the number of people invited to attend an appointment and those who actually turn up. The difference is referred to as the conversion rate. Conversion rates can often be low.</p>
+              <p>Kainos operate a product called Evolve, which is used to send out appointment letters to medical patients. An automated program iterates through a database to identify users who require a letter sent to them, then sends this from a mail merge email template. Unfortunately, the conversion rate of this approach is less than 10%.</p>
+              <p>The solution proposed is a web application that accepts text input in the form of a letter and returns a score for based on the letter’s expected conversion rate, based on the language used. It highlights the keywords and phrases that lead to this conclusion and therefore will allow the user to improve the letter in order to improve the conversion rate.</p> 
+              <p>Natural language processing is used to identify keywords that analyse the letter for the following -</p>
+              <ul>
+                <li><i class="ion-android-checkmark-circle"></i>Sentiment Analysis</li>
+                <li><i class="ion-android-checkmark-circle"></i>Entity Analysis</li>
+                <li><i class="ion-android-checkmark-circle"></i>Personality Analysis.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container-fluid">
+
+        <header class="section-header">
+          <h3>Why choose us?</h3>
+          <p>You may be wondering why to use this product. Here is why.</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="why-us-img">
+              <img src="static/img/QUB.jpg" alt="" class="img-fluid">
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="why-us-content">
+              <p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</p>
+              <p>
+                Explicabo repellendus quia labore. Non optio quo ea ut ratione et quaerat. Porro facilis deleniti porro consequatur
+                et temporibus. Labore est odio.
+
+                Odio omnis saepe qui. Veniam eaque ipsum. Ea quia voluptatum quis explicabo sed nihil repellat..
+              </p>
+
+              <div class="features wow bounceInUp clearfix">
+                <i class="fa fa-diamond" style="color: #f058dc;"></i>
+                <h4>Corporis dolorem</h4>
+                <p>Commodi quia voluptatum. Est cupiditate voluptas quaerat officiis ex alias dignissimos et ipsum. Soluta at enim modi ut incidunt dolor et.</p>
+              </div>
+
+              <div class="features wow bounceInUp clearfix">
+                <i class="fa fa-object-group" style="color: #ffb774;"></i>
+                <h4>Eum ut aspernatur</h4>
+                <p>Molestias eius rerum iusto voluptas et ab cupiditate aut enim. Assumenda animi occaecati. Quo dolore fuga quasi autem aliquid ipsum odit. Perferendis doloremque iure nulla aut.</p>
+              </div>
+
+              <div class="features wow bounceInUp clearfix">
+                <i class="fa fa-language" style="color: #589af1;"></i>
+                <h4>Voluptates dolores</h4>
+                <p>Voluptates nihil et quis omnis et eaque omnis sint aut. Ducimus dolorum aspernatur. Totam dolores ut enim ullam voluptas distinctio aut.</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="container">
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">274</span>
+            <p>Clients</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">421</span>
+            <p>Projects</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1,364</span>
+            <p>Hours Of Support</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">18</span>
+            <p>Hard Workers</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Testimonials</h3>
+        </header>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+
+            <div class="owl-carousel testimonials-carousel wow fadeInUp">
+
+              <div class="testimonial-item">
+                <img src="static/img/MaleAvatar.png" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <p>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+        <div class="section-header">
+          <h3>Team</h3>
+          <p>Here is some information about the individuals behind this project.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp">
+            <div class="member">
+              <img src="static/img/GraceTurkington.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Grace Turkington</h4>
+                  <span>Author, Developer & Tester</span>
+                  <div class="social">
+                    <a href="http://www.linkedin.com/in/graceturkington"><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp">
+            <div class="member">
+              <img src="static/img/MaleAvatar.png" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>John Bustard</h4>
+                  <span>Supervisor within QUB</span>
+                  <div class="social">
+                    <a href="https://twitter.com/QUBelfast"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/QUBelfast/"><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp">
+            <div class="member">
+              <img src="static/img/MaleAvatar.png" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Marc Nevin</h4>
+                  <span>Supervisor within Kainos</span>
+                  <div class="social">
+                    <a href="https://twitter.com/KainosSoftware"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/KainosSoftware/"><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp">
+            <div class="member">
+              <img src="static/img/RoxyTurkington.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Roxy Turkington</h4>
+                  <span>Morale Support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq wow fadeInUp">
+      <div class="container">
+        <header class="section-header">
+          <h3>Frequently Asked Questions</h3>
+          <p>Below are some frequently asked questions, that may be able to help you out.</p>
+        </header>
+
+        <ul id="faq-list" class="wow fadeInUp">
+          <li>
+            <a data-toggle="collapse" class="collapsed" href="#faq1">Question 1 <i class="ion-android-remove"></i></a>
+            <div id="faq1" class="collapse" data-parent="#faq-list">
+              <p>
+                Answer 1
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq2" class="collapsed">Question 2 <i class="ion-android-remove"></i></a>
+            <div id="faq2" class="collapse" data-parent="#faq-list">
+              <p>
+                Answer 2
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">Question 3 <i class="ion-android-remove"></i></a>
+            <div id="faq3" class="collapse" data-parent="#faq-list">
+              <p>
+                Answer 3
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq4" class="collapsed">Question 4 <i class="ion-android-remove"></i></a>
+            <div id="faq4" class="collapse" data-parent="#faq-list">
+              <p>
+                Answer 4
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq5" class="collapsed">Question 5 <i class="ion-android-remove"></i></a>
+            <div id="faq5" class="collapse" data-parent="#faq-list">
+              <p>
+                Answer 5
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq6" class="collapsed">Question 6 <i class="ion-android-remove"></i></a>
+            <div id="faq6" class="collapse" data-parent="#faq-list">
+              <p>
+                Answer 6
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section><!-- End F.A.Q Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="section-bg">
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6">
+
+            <div class="row">
+
+              <div class="col-sm-6">
+
+                <div class="footer-info">
+                  <h3>NLP for Healthcare Action Conversion</h3>
+                  <p>Thank you for visiting this website. If you wish to get in contact with feedback, complaints, or anything else, you will find the details to do so here.</p>
+                </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                <div class="footer-links">
+                  <h4>Useful Links</h4>
+                  <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Terms of service</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                  </ul>
+                </div>
+
+                <div class="footer-links">
+                  <h4>Contact Us</h4>
+                  <p>
+                    University Road <br>
+                    Belfast, BT7 1NN<br>
+                    Northern Ireland, UK <br>
+                    <strong>Phone:</strong> +44 793 201 3252<br>
+                    <strong>Email:</strong> gturkington05@qub.ac.uk<br>
+                  </p>
+                </div>
+
+                <div class="social-links">
+                  <a href="https://twitter.com/QUBelfast" class="twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/QUBelfast/" class="facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/qubelfast/" class="instagram"><i class="fa fa-instagram"></i></a>
+                  <a href="http://www.linkedin.com/in/graceturkington" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="form">
+
+              <h4>Send me a message</h4>
+              <p>If you do not wish to email or phone, feel free to fill in the form below.</p>
+
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validate"></div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+
+                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Rapid</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
+      -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/counterup/counterup.min.js"></script>
+  <script src="static/vendor/venobox/venobox.min.js"></script>
+  <script src="static/vendor/mobile-nav/mobile-nav.js"></script>
+  <script src="static/vendor/wow/wow.min.js"></script>
+  <script src="static/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/vendor/waypoints/jquery.waypoints.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html>
