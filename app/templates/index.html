@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="static/img/favicon.png" rel="icon">
-  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="static/img/QUBIcon.png" rel="icon">
+  <link href="static/img/QUBIcon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
@@ -54,24 +54,16 @@
             <ul>
               <li><a href="#sentimentAnalysis">Sentiment Analysis</a></li>
               <li><a href="#entityAnalysis">Entity Analysis</a></li>
-              <li class="drop-down"><a href="#personalityAnalysis">Personality Analysis</a>
-                <ul>
-                  <li><a href="#personalityAnalysis">Openness</a></li>
-                  <li><a href="#personalityAnalysis">Conscientiousness</a></li>
-                  <li><a href="#personalityAnalysis">Extraversion</a></li>
-                  <li><a href="#personalityAnalysis">Agreeableness</a></li>
-                  <li><a href="#personalityAnalysis">Neuroticism</a></li>
-                </ul>
-              </li>
+              <li class="drop-down"><a href="#personalityAnalysis">Personality Analysis</a></li>
             </ul>
           </li>
 
-          <li class="drop-down"><a href="#about">About This Project</a>
+          <li class="drop-down"><a href="#about">About</a>
             <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#why-us">Why choose us?</a></li>
+              <li><a href="#about">About this Project</a></li>
               <li><a href="#testimonials">Testimonials</a></li>
               <li><a href="#team">Team</a></li>
+              <li><a href="#why-us">About Queen's</a></li>
               <li><a href="#faq">F.A.Q</a></li>
               <li><a href="#footer">Contact</a></li>
             </ul>
@@ -162,6 +154,8 @@
         </center>
         <span><br><span id="sentimentResult"></span></span>
 
+        <a href="#" class="btn-analyse scrollto">Analyse</a>
+       
         <script>
           function addSubmit(ev) {
             ev.preventDefault();
@@ -246,110 +240,39 @@
 
           <div class="col-lg-5 col-md-6">
             <div class="about-img">
-              <img src="static/img/Big5.png" alt="">
+              <img src="static/img/PersonalityTypes.png" alt="">
             </div>
           </div>
 
           <div class="col-lg-7 col-md-6">
             <div class="about-content">
-              <h2>About This Project</h2>
+              <h2>About this Project</h2>
               <h3>The problem being addressed is how the language used in a letter influences the chances of the patient attending the subsequent appointment, and how the language could be adjusted using natural language processing to achieve improved attendance.</h3>
               <p>Within the health service there is a considerable gap between the number of people invited to attend an appointment and those who actually turn up. The difference is referred to as the conversion rate. Conversion rates can often be low.</p>
               <p>Kainos operate a product called Evolve, which is used to send out appointment letters to medical patients. An automated program iterates through a database to identify users who require a letter sent to them, then sends this from a mail merge email template. Unfortunately, the conversion rate of this approach is less than 10%.</p>
-              <p>The solution proposed is a web application that accepts text input in the form of a letter and returns a score for based on the letter’s expected conversion rate, based on the language used. It highlights the keywords and phrases that lead to this conclusion and therefore will allow the user to improve the letter in order to improve the conversion rate.</p> 
-              <p>Natural language processing is used to identify keywords that analyse the letter for the following -</p>
+              <p>The solution proposed is a web application that accepts text input in the form of a letter and returns analyse of the letter that could be linked to its expected conversion rate, based on the language used.</p> 
+              <p>Natural language processing is used to complete the following analyse on the letter's text -</p>
               <ul>
                 <li><i class="ion-android-checkmark-circle"></i>Sentiment Analysis</li>
                 <li><i class="ion-android-checkmark-circle"></i>Entity Analysis</li>
-                <li><i class="ion-android-checkmark-circle"></i>Personality Analysis.</li>
+                <li><i class="ion-android-checkmark-circle"></i>Personality Analysis</li>
               </ul>
+              <p>The personalities assessed within personality analysis are the Big Five personality types, also known as OCEAN, which are as follows -</p>
+              <ul>
+                <li><i class="ion-android-checkmark-circle"></i>Openness</li>
+                <li><i class="ion-android-checkmark-circle"></i>Conscientiousness</li>
+                <li><i class="ion-android-checkmark-circle"></i>Agreeableness</li>
+                <li><i class="ion-android-checkmark-circle"></i>Extraversion</li>
+                <li><i class="ion-android-checkmark-circle"></i>Neuroticism</li>
+              </ul>
+              <p>If you wish to see how you score for each of the Big Five, you can take a free quiz <a href="https://www.truity.com/test/big-five-personality-test">here</a>.</p>
+              <p>The goal is that this product will allow healthcare professionals to edit a letter in order to make it appeal to the common case. This would lead to many benefits, one of the which being budgetary savings due to the increased efficiency of staffs' time. With this money being used elsewhere, and more people attending appointments, the aim is that public healthcare will increase.</p>
             </div>
           </div>
         </div>
       </div>
 
     </section><!-- End About Section -->
-
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container-fluid">
-
-        <header class="section-header">
-          <h3>Why choose us?</h3>
-          <p>You may be wondering why to use this product. Here is why.</p>
-        </header>
-
-        <div class="row">
-
-          <div class="col-lg-6">
-            <div class="why-us-img">
-              <img src="static/img/QUB.jpg" alt="" class="img-fluid">
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="why-us-content">
-              <p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</p>
-              <p>
-                Explicabo repellendus quia labore. Non optio quo ea ut ratione et quaerat. Porro facilis deleniti porro consequatur
-                et temporibus. Labore est odio.
-
-                Odio omnis saepe qui. Veniam eaque ipsum. Ea quia voluptatum quis explicabo sed nihil repellat..
-              </p>
-
-              <div class="features wow bounceInUp clearfix">
-                <i class="fa fa-diamond" style="color: #f058dc;"></i>
-                <h4>Corporis dolorem</h4>
-                <p>Commodi quia voluptatum. Est cupiditate voluptas quaerat officiis ex alias dignissimos et ipsum. Soluta at enim modi ut incidunt dolor et.</p>
-              </div>
-
-              <div class="features wow bounceInUp clearfix">
-                <i class="fa fa-object-group" style="color: #ffb774;"></i>
-                <h4>Eum ut aspernatur</h4>
-                <p>Molestias eius rerum iusto voluptas et ab cupiditate aut enim. Assumenda animi occaecati. Quo dolore fuga quasi autem aliquid ipsum odit. Perferendis doloremque iure nulla aut.</p>
-              </div>
-
-              <div class="features wow bounceInUp clearfix">
-                <i class="fa fa-language" style="color: #589af1;"></i>
-                <h4>Voluptates dolores</h4>
-                <p>Voluptates nihil et quis omnis et eaque omnis sint aut. Ducimus dolorum aspernatur. Totam dolores ut enim ullam voluptas distinctio aut.</p>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="container">
-        <div class="row counters">
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">274</span>
-            <p>Clients</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">421</span>
-            <p>Projects</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">1,364</span>
-            <p>Hours Of Support</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">18</span>
-            <p>Hard Workers</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Why Us Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -365,11 +288,29 @@
             <div class="owl-carousel testimonials-carousel wow fadeInUp">
 
               <div class="testimonial-item">
-                <img src="static/img/MaleAvatar.png" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <img src="static/img/FemaleMedic.jpg" class="testimonial-img" alt="">
+                <h3>Hannah O'Donnell</h3>
+                <h4>GP</h4>
                 <p>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  As well as using this product to analyse letters inviting patients to appointments, I also use it to analyse the text of letters before I send them to my colleagues. For example, when writing a referral letter to the local hospital informing them of a patient's need to be seen, I want to ensure ___ entity.
+                </p>
+              </div>
+
+              <div class="testimonial-item">
+                <img src="static/img/MaleMedic.jpg" class="testimonial-img" alt="">
+                <h3>Tom Smith</h3>
+                <h4>Nurse</h4>
+                <p>
+                  Personality.
+                </p>
+              </div>
+
+              <div class="testimonial-item">
+                <img src="static/img/FemaleMedic.jpg" class="testimonial-img" alt="">
+                <h3>Sarah Brown</h3>
+                <h4>Physiotherapist</h4>
+                <p>
+                  I use this product to analyse letters sent out to patients inviting them to attend appointments at the hospital where I work. There is a 6-month waiting list for these appointments, so myself and my colleagues find it frustrating when patients don't turn up, especially when they do not warn us of this in advance. I analyse letters for sentiment, in order to ensure they are neutral. It is too early to confirm yet, but I hope to see more patients attend appointments in the near future.
                 </p>
               </div>
 
@@ -457,12 +398,87 @@
       </div>
     </section><!-- End Team Section -->
 
+    <!-- ======= About Queen's Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container-fluid">
+
+        <header class="section-header">
+          <h3>About Queen's</h3>
+          <p>I am a final year student of Software Engineering at Queen's University, Belfast.<br>Here is some information about where I study.</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="why-us-img">
+              <img src="static/img/QUB.jpg" alt="" class="img-fluid">
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="why-us-content">
+              <p>Queen's University is ranked 173rd in the world. It is known for its research-based teaching and graduate prospects.</p>
+
+              <div class="features wow bounceInUp clearfix">
+                <i class="fa fa-diamond" style="color: #f058dc;"></i>
+                <h4>A Russell Group University</h4>
+                <p>The Russell Group represents 24 leading UK universities committed to maintaining the very best research, an outstanding teaching and learning experience and unrivalled links with business and the public sector.</p>
+              </div>
+
+              <div class="features wow bounceInUp clearfix">
+                <i class="fa fa-object-group" style="color: #ffb774;"></i>
+                <h4>The School of Electronics, Electrical Engineering &amp; Computer Science</h4>
+                <p>Queen’s University has become the first academic institution in Northern Ireland to be awarded a royally-sealed professorship. The rare Regius Professorship is bestowed to recognise exceptional research work. The Queen has awarded the title to the electronics and computer engineering department, which has undertaken pioneering work in the field of cyber-security.</p>
+              </div>
+
+              <div class="features wow bounceInUp clearfix">
+                <i class="fa fa-language" style="color: #589af1;"></i>
+                <h4>Software Engineering BEng</h4>
+                <p>This course at Queen's is very dynamic in its content, in order to keep up with the nature of the IT industry. It also contains a placement year, meaning all students have at least 9 months of industrial experience by the time they graduate.</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="container">
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">24,955</span>
+            <p>Students</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">200</span>
+            <p>Clubs &amp; Societies</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">___</span>
+            <p>___</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">___</span>
+            <p>___</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End About Queen's Section -->
+
     <!-- ======= F.A.Q Section ======= -->
     <section id="faq" class="faq wow fadeInUp">
       <div class="container">
         <header class="section-header">
           <h3>Frequently Asked Questions</h3>
-          <p>Below are some frequently asked questions, that may be able to help you out.</p>
+          <p>Below are some frequently asked questions that may assist you.</p>
         </header>
 
         <ul id="faq-list" class="wow fadeInUp">
@@ -511,15 +527,6 @@
             </div>
           </li>
 
-          <li>
-            <a data-toggle="collapse" href="#faq6" class="collapsed">Question 6 <i class="ion-android-remove"></i></a>
-            <div id="faq6" class="collapse" data-parent="#faq-list">
-              <p>
-                Answer 6
-              </p>
-            </div>
-          </li>
-
         </ul>
 
       </div>
@@ -542,31 +549,31 @@
 
                 <div class="footer-info">
                   <h3>NLP for Healthcare Action Conversion</h3>
-                  <p>Thank you for visiting this website. If you wish to get in contact with feedback, complaints, or anything else, you will find the details to do so here.</p>
+                  <p>Thank you for visiting this website.<br>
+                  If you wish to get in contact with feedback, complaints, or anything else, you will find the details to do so here.</p>
                 </div>
 
               </div>
 
               <div class="col-sm-6">
                 <div class="footer-links">
-                  <h4>Useful Links</h4>
+                  <h4>Main Links</h4>
                   <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#about">About us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Terms of service</a></li>
-                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
                   </ul>
                 </div>
 
                 <div class="footer-links">
                   <h4>Contact Us</h4>
                   <p>
-                    University Road <br>
-                    Belfast, BT7 1NN<br>
+                    QUB Computer Science Building<br>
+                    18 Malone Road <br>
+                    Belfast, BT9 5AF<br>
                     Northern Ireland, UK <br>
                     <strong>Phone:</strong> +44 793 201 3252<br>
-                    <strong>Email:</strong> gturkington05@qub.ac.uk<br>
+                    <strong>Email:</strong> <a href="mailto:gturkington05@qub.ac.uk?subject=Regarding NLP for Healthcare Action Conversion">gturkington05@qub.ac.uk</a><br>
                   </p>
                 </div>
 
