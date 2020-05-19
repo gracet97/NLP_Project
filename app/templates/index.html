@@ -6,8 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>NLP for Healthcare Action Conversion</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+  <!--meta content="" name="description">
+  <meta content="" name="keywords"-->
 
   <!-- Favicons -->
   <link href="static/img/QUBIcon.png" rel="icon">
@@ -39,7 +39,6 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="header-inner-pages">
-
     <div class="container">
 
       <div class="logo float-left">
@@ -49,26 +48,23 @@
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
           <li class="active"><a href="/">Home</a></li>
-
           <li class="drop-down"><a href="#services">Services</a>
             <ul>
-              <li><a href="#sentimentAnalysis">Sentiment Analysis</a></li>
-              <li><a href="#entityAnalysis">Entity Analysis</a></li>
-              <li class="drop-down"><a href="#personalityAnalysis">Personality Analysis</a></li>
+              <li><a href="#sentiment-analysis">Sentiment Analysis</a></li>
+              <li><a href="#entity-analysis">Entity Analysis</a></li>
+              <li class="drop-down"><a href="#personality-analysis">Personality Analysis</a></li>
             </ul>
           </li>
-
           <li class="drop-down"><a href="#about">About</a>
             <ul>
               <li><a href="#about">About this Project</a></li>
               <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#team">Team</a></li>
               <li><a href="#why-us">About Queen's</a></li>
+              <li><a href="#team">Team</a></li>
               <li><a href="#faq">F.A.Q</a></li>
               <li><a href="#footer">Contact</a></li>
             </ul>
           </li>
-        
         </ul>
       </nav><!-- .main-nav -->
 
@@ -85,12 +81,10 @@
             <a href="#services" class="btn-get-started scrollto">Get Started</a>
           </div>
         </div>
-
         <div class="col-md-6 intro-img order-md-last order-first">
           <img src="static/img/intro-img.svg" alt="" class="img-fluid">
         </div>
       </div>
-
     </div>
   </section><!-- End Hero -->
 
@@ -102,7 +96,7 @@
 
         <header class="section-header">
           <h3>Services</h3>
-          <p>This product offers sentiment analysis, entity analysis and personality analysis.<br>Find out more about each option below.</p>
+          <p>This product analyses the text of letters. It offers sentiment analysis, entity analysis and personality analysis.<br>Find out more about each option below.</p>
         </header>
 
         <div class="row">
@@ -111,7 +105,7 @@
             <div class="box">
               <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
               <h4 class="title"><a href="">Sentiment Analysis</a></h4>
-              <p class="description">AWS Comprehend is used to analyse the sentiment present in the text.</p>
+              <p class="description">AWS Comprehend is used to analyse the sentiment present in the text. It states whether the text is negative, neutral or positive. It provides a score for this rating, in order to show how much the text represents the sentiment returned.</p>
             </div>
           </div>
 
@@ -119,7 +113,7 @@
             <div class="box">
               <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
               <h4 class="title"><a href="">Entity Analysis</a></h4>
-              <p class="description">AWS Comprehend is used to identify the entities present in the text.</p>
+              <p class="description">AWS Comprehend is used to identify the entities present in the text. It states what type of entity it has identified. It provides a score for this identification, in order to show how confident the system is that the entity has been identified correctly.</p>
             </div>
           </div>
 
@@ -127,7 +121,7 @@
             <div class="box">
               <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
               <h4 class="title"><a href="">Personality Analysis</a></h4>
-              <p class="description">A text classifier is used to detect the presence of the Big 5 personality types in the text.</p>
+              <p class="description">A text classifier is used to detect the presence of the Big 5 personality types in the text. These personality types are - Openness, Conscientiousness, Extraversion, Agreeableness and Neuroticism. It provides a list of the personalities of these 5 which are present above the average weighting.</p>
             </div>
           </div>
 
@@ -137,7 +131,7 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Sentiment Analysis Section ======= -->
-    <section id="sentimentAnalysis" class="services section-bg">
+    <section id="sentiment-analysis" class="services section-bg">
       <div class="container">
 
         <header class="section-header">
@@ -147,39 +141,37 @@
 
         <center>
           <form id="sentiment">
-            <label><input name="input"></label>
-            <br>
+            <textarea name="inputSentiment" rows="10" cols="100"></textarea>
+            <br><br>
             <input type="submit" value="Analyse">
           </form>
         </center>
         <span><br><span id="sentimentResult"></span></span>
-
-        <a href="#" class="btn-analyse scrollto">Analyse</a>
        
         <script>
-          function addSubmit(ev) {
+          function submitSentiment(ev) {
             ev.preventDefault();
             var request = new XMLHttpRequest();
-            request.addEventListener('load', addShow);
+            request.addEventListener('load', showSentiment);
             request.open('POST', {{ url_for('sentiment')|tojson }});
             request.send(new FormData(this));
           }
 
-          function addShow() {
+          function showSentiment() {
             var data = JSON.parse(this.responseText);
             var span = document.getElementById('sentimentResult');
             span.innerText = data.result;
           }
 
           var form = document.getElementById('sentiment');
-          form.addEventListener('submit', addSubmit);
+          form.addEventListener('submit', submitSentiment);
         </script>
 
       </div>
     </section><!-- Sentiment Analysis Section -->
 
     <!-- ======= Entity Analysis Section ======= -->
-    <section id="entityAnalysis" class="services section-bg">
+    <section id="entity-analysis" class="services section-bg">
       <div class="container">
 
         <header class="section-header">
@@ -190,37 +182,37 @@
 
         <center>
           <form id="entity">
-            <label><input name="input2"></label>
-            <br>
+            <textarea name="inputEntity" rows="10" cols="100"></textarea>
+            <br><br>
             <input type="submit" value="Analyse">
           </form>
         </center>
         <span><br><span id="entityResult"></span></span>
 
         <script>
-          function addSubmit2(ev) {
+          function submitEntity(ev) {
             ev.preventDefault();
             var request = new XMLHttpRequest();
-            request.addEventListener('load', addShow2);
+            request.addEventListener('load', showEntity);
             request.open('POST', {{ url_for('entity')|tojson }});
             request.send(new FormData(this));
           }
 
-          function addShow2() {
+          function showEntity() {
             var data = JSON.parse(this.responseText);
             var span = document.getElementById('entityResult');
             span.innerText = data.result;
           }
 
           var form = document.getElementById('entity');
-          form.addEventListener('submit', addSubmit2);
+          form.addEventListener('submit', submitEntity);
         </script>
 
       </div>
     </section--><!-- Entity Analysis Section -->
 
     <!-- ======= Personality Analysis Section ======= -->
-    <section id="personalityAnalysis" class="services section-bg">
+    <section id="personality-analysis" class="services section-bg">
       <div class="container">
 
         <header class="section-header">
@@ -229,6 +221,34 @@
           <p>Enter text to be analysed for its personality.</p>
         </header>
 
+        <center>
+          <form id="personality">
+            <textarea name="inputPersonality" rows="10" cols="100"></textarea>
+            <br><br>
+            <input type="submit" value="Analyse">
+          </form>
+        </center>
+        <span><br><span id="personalityResult"></span></span>
+
+        <script>
+          function submitPersonality(ev) {
+            ev.preventDefault();
+            var request = new XMLHttpRequest();
+            request.addEventListener('load', showEntity);
+            request.open('POST', {{ url_for('personality')|tojson }});
+            request.send(new FormData(this));
+          }
+
+          function showPersonality() {
+            var data = JSON.parse(this.responseText);
+            var span = document.getElementById('personalityResult');
+            span.innerText = data.result;
+          }
+
+          var form = document.getElementById('personality');
+          form.addEventListener('submit', submitPersonality);
+        </script>
+
       </div>
     </section><!-- Personality Analysis Section -->
 
@@ -236,20 +256,19 @@
     <section id="about" class="about">
 
       <div class="container">
+
         <div class="row">
 
-          <div class="col-lg-5 col-md-6">
-            <div class="about-img">
-              <img src="static/img/PersonalityTypes.png" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-7 col-md-6">
+          <div class="col-lg-6 col-md-6">
             <div class="about-content">
               <h2>About this Project</h2>
               <h3>The problem being addressed is how the language used in a letter influences the chances of the patient attending the subsequent appointment, and how the language could be adjusted using natural language processing to achieve improved attendance.</h3>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="about-content">
               <p>Within the health service there is a considerable gap between the number of people invited to attend an appointment and those who actually turn up. The difference is referred to as the conversion rate. Conversion rates can often be low.</p>
-              <p>Kainos operate a product called Evolve, which is used to send out appointment letters to medical patients. An automated program iterates through a database to identify users who require a letter sent to them, then sends this from a mail merge email template. Unfortunately, the conversion rate of this approach is less than 10%.</p>
               <p>The solution proposed is a web application that accepts text input in the form of a letter and returns analyse of the letter that could be linked to its expected conversion rate, based on the language used.</p> 
               <p>Natural language processing is used to complete the following analyse on the letter's text -</p>
               <ul>
@@ -257,6 +276,15 @@
                 <li><i class="ion-android-checkmark-circle"></i>Entity Analysis</li>
                 <li><i class="ion-android-checkmark-circle"></i>Personality Analysis</li>
               </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-7 col-md-6">
+            <div class="about-content">
               <p>The personalities assessed within personality analysis are the Big Five personality types, also known as OCEAN, which are as follows -</p>
               <ul>
                 <li><i class="ion-android-checkmark-circle"></i>Openness</li>
@@ -266,10 +294,26 @@
                 <li><i class="ion-android-checkmark-circle"></i>Neuroticism</li>
               </ul>
               <p>If you wish to see how you score for each of the Big Five, you can take a free quiz <a href="https://www.truity.com/test/big-five-personality-test">here</a>.</p>
-              <p>The goal is that this product will allow healthcare professionals to edit a letter in order to make it appeal to the common case. This would lead to many benefits, one of the which being budgetary savings due to the increased efficiency of staffs' time. With this money being used elsewhere, and more people attending appointments, the aim is that public healthcare will increase.</p>
             </div>
           </div>
+
+          <div class="col-lg-5 col-md-6">
+            <div class="about-img">
+              <img src="static/img/PersonalityTypes.png" alt="">
+            </div>
+          </div>
+
         </div>
+
+        <div class="row">
+
+          <div class="about-content">
+            <p>The goal is that this product will allow healthcare professionals to enter the text of a letter, to then edit it in order to make it appeal to the common case. Regarding sentiment analysis, it is assumed that a letter expressing positive sentiment will allow for an increase in conversion rate. Regarding entity analysis, it is assumed that a letter with clear entities that include the patient's name, and the date and location of the appointment, will allow for an increase in conversion rate. Regarding personality analysis, it is assumed that a letter expressing the average level of each personality trait will allow for an increase in conversion rate.</p>
+            <p>This would lead to many benefits, one of the which being budgetary savings due to the increased efficiency of staffs' time. With this money being used elsewhere, and more people attending appointments, the aim is that public healthcare will increase.</p>
+          </div>
+
+        </div>
+
       </div>
 
     </section><!-- End About Section -->
@@ -284,15 +328,24 @@
 
         <div class="row justify-content-center">
           <div class="col-lg-8">
-
             <div class="owl-carousel testimonials-carousel wow fadeInUp">
+
+
+              <div class="testimonial-item">
+                <img src="static/img/FemaleMedic.jpg" class="testimonial-img" alt="">
+                <h3>Sarah Brown</h3>
+                <h4>Physiotherapist</h4>
+                <p>
+                  I use this product to analyse letters sent out to patients inviting them to attend appointments at the hospital where I work. There is a 6-month waiting list for these appointments, so myself and my colleagues find it frustrating when patients don't turn up, especially when they do not warn us of this in advance. I analyse letters for sentiment, in order to ensure they are positive. It is too early to confirm yet, but I hope to see more patients attend appointments in the near future.
+                </p>
+              </div>
 
               <div class="testimonial-item">
                 <img src="static/img/FemaleMedic.jpg" class="testimonial-img" alt="">
                 <h3>Hannah O'Donnell</h3>
                 <h4>GP</h4>
                 <p>
-                  As well as using this product to analyse letters inviting patients to appointments, I also use it to analyse the text of letters before I send them to my colleagues. For example, when writing a referral letter to the local hospital informing them of a patient's need to be seen, I want to ensure ___ entity.
+                  As well as using this product to analyse letters inviting patients to appointments, I also use it to analyse the text of letters before I send them to my colleagues. For example, when writing a referral letter to the local hospital informing them of a patient's need to be seen, I want to ensure the letter is proffessional in nature, not containing a heavy weighting of any personality type. 
                 </p>
               </div>
 
@@ -301,30 +354,93 @@
                 <h3>Tom Smith</h3>
                 <h4>Nurse</h4>
                 <p>
-                  Personality.
-                </p>
-              </div>
-
-              <div class="testimonial-item">
-                <img src="static/img/FemaleMedic.jpg" class="testimonial-img" alt="">
-                <h3>Sarah Brown</h3>
-                <h4>Physiotherapist</h4>
-                <p>
-                  I use this product to analyse letters sent out to patients inviting them to attend appointments at the hospital where I work. There is a 6-month waiting list for these appointments, so myself and my colleagues find it frustrating when patients don't turn up, especially when they do not warn us of this in advance. I analyse letters for sentiment, in order to ensure they are neutral. It is too early to confirm yet, but I hope to see more patients attend appointments in the near future.
+                  When writing letters inviting patients to appointments at the surgery where I work, I use a template. This saves me time, as I have less to type out. Before sending the letter, I complete entity analyse on it to ensure I did not forget to enter specific details relating to the patient into the template, such as their name, date of birth, and the date, time and location of their appointment.
                 </p>
               </div>
 
             </div>
-
           </div>
         </div>
 
       </div>
     </section><!-- End Testimonials Section -->
 
+    <!-- ======= About Queen's Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container-fluid">
+
+        <header class="section-header">
+          <h3>About Queen's</h3>
+          <p>I am a final year student of Software Engineering at Queen's University, Belfast.<br>Queen's University is ranked 173rd in the world. It is known for its research-based teaching and graduate prospects.
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="why-us-img">
+              <img src="static/img/QUB.jpg" alt="" class="img-fluid">
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="why-us-content">
+              <div class="features wow bounceInUp clearfix">
+                <i class="fa fa-diamond" style="color: #f058dc;"></i>
+                <h4>A Russell Group University</h4>
+                <p>The Russell Group represents 24 leading UK universities committed to maintaining the very best research, an outstanding teaching and learning experience and unrivalled links with business and the public sector.</p>
+              </div>
+
+              <div class="features wow bounceInUp clearfix">
+                <i class="fa fa-object-group" style="color: #ffb774;"></i>
+                <h4>The School of Electronics, Electrical Engineering &amp; Computer Science</h4>
+                <p>Queen’s University has become the first academic institution in Northern Ireland to be awarded a royally-sealed professorship. The rare Regius Professorship is bestowed to recognise exceptional research work. The Queen has awarded the title to the electronics and computer engineering department, which has undertaken pioneering work in the field of cyber-security.</p>
+              </div>
+
+              <div class="features wow bounceInUp clearfix">
+                <i class="fa fa-language" style="color: #589af1;"></i>
+                <h4>Software Engineering BEng</h4>
+                <p>This course at Queen's is very dynamic in its content, in order to keep up with the nature of the IT industry. It also contains a placement year, meaning all students have at least 9 months of industrial experience by the time they graduate.</p>
+              </div>
+
+              <p>For more information, visit <a href="https://www.qub.ac.uk/Study/Why-Study-at-Queens/rankings-and-reputation/">this link</a></p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">24,955</span>
+            <p>Students</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">200</span>
+            <p>Clubs &amp; Societies</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">140</span>
+            <p>Ranking for Graduate Prospects</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1</span>
+            <p>Ranking for Library Services</p>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End About Queen's Section -->
+
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
       <div class="container">
+
         <div class="section-header">
           <h3>Team</h3>
           <p>Here is some information about the individuals behind this project.</p>
@@ -353,7 +469,7 @@
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>John Bustard</h4>
-                  <span>Supervisor within QUB</span>
+                  <span>Supervisor within Queen's University</span>
                   <div class="social">
                     <a href="https://twitter.com/QUBelfast"><i class="fa fa-twitter"></i></a>
                     <a href="https://www.facebook.com/QUBelfast/"><i class="fa fa-facebook"></i></a>
@@ -398,87 +514,13 @@
       </div>
     </section><!-- End Team Section -->
 
-    <!-- ======= About Queen's Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container-fluid">
-
-        <header class="section-header">
-          <h3>About Queen's</h3>
-          <p>I am a final year student of Software Engineering at Queen's University, Belfast.<br>Here is some information about where I study.</p>
-        </header>
-
-        <div class="row">
-
-          <div class="col-lg-6">
-            <div class="why-us-img">
-              <img src="static/img/QUB.jpg" alt="" class="img-fluid">
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="why-us-content">
-              <p>Queen's University is ranked 173rd in the world. It is known for its research-based teaching and graduate prospects.</p>
-
-              <div class="features wow bounceInUp clearfix">
-                <i class="fa fa-diamond" style="color: #f058dc;"></i>
-                <h4>A Russell Group University</h4>
-                <p>The Russell Group represents 24 leading UK universities committed to maintaining the very best research, an outstanding teaching and learning experience and unrivalled links with business and the public sector.</p>
-              </div>
-
-              <div class="features wow bounceInUp clearfix">
-                <i class="fa fa-object-group" style="color: #ffb774;"></i>
-                <h4>The School of Electronics, Electrical Engineering &amp; Computer Science</h4>
-                <p>Queen’s University has become the first academic institution in Northern Ireland to be awarded a royally-sealed professorship. The rare Regius Professorship is bestowed to recognise exceptional research work. The Queen has awarded the title to the electronics and computer engineering department, which has undertaken pioneering work in the field of cyber-security.</p>
-              </div>
-
-              <div class="features wow bounceInUp clearfix">
-                <i class="fa fa-language" style="color: #589af1;"></i>
-                <h4>Software Engineering BEng</h4>
-                <p>This course at Queen's is very dynamic in its content, in order to keep up with the nature of the IT industry. It also contains a placement year, meaning all students have at least 9 months of industrial experience by the time they graduate.</p>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="container">
-        <div class="row counters">
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">24,955</span>
-            <p>Students</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">200</span>
-            <p>Clubs &amp; Societies</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">___</span>
-            <p>___</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">___</span>
-            <p>___</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End About Queen's Section -->
-
     <!-- ======= F.A.Q Section ======= -->
     <section id="faq" class="faq wow fadeInUp">
       <div class="container">
+
         <header class="section-header">
           <h3>Frequently Asked Questions</h3>
-          <p>Below are some frequently asked questions that may assist you.</p>
+          <p>Below are some frequently asked questions that may assist you regarding this product.</p>
         </header>
 
         <ul id="faq-list" class="wow fadeInUp">
@@ -509,24 +551,6 @@
             </div>
           </li>
 
-          <li>
-            <a data-toggle="collapse" href="#faq4" class="collapsed">Question 4 <i class="ion-android-remove"></i></a>
-            <div id="faq4" class="collapse" data-parent="#faq-list">
-              <p>
-                Answer 4
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <a data-toggle="collapse" href="#faq5" class="collapsed">Question 5 <i class="ion-android-remove"></i></a>
-            <div id="faq5" class="collapse" data-parent="#faq-list">
-              <p>
-                Answer 5
-              </p>
-            </div>
-          </li>
-
         </ul>
 
       </div>
@@ -538,21 +562,15 @@
   <footer id="footer" class="section-bg">
     <div class="footer-top">
       <div class="container">
-
         <div class="row">
 
           <div class="col-lg-6">
-
             <div class="row">
 
               <div class="col-sm-6">
-
                 <div class="footer-info">
                   <h3>NLP for Healthcare Action Conversion</h3>
-                  <p>Thank you for visiting this website.<br>
-                  If you wish to get in contact with feedback, complaints, or anything else, you will find the details to do so here.</p>
                 </div>
-
               </div>
 
               <div class="col-sm-6">
@@ -564,9 +582,25 @@
                     <li><a href="#services">Services</a></li>
                   </ul>
                 </div>
+              </div>
 
-                <div class="footer-links">
-                  <h4>Contact Us</h4>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="row">
+
+              <div class="col-sm-6">
+                <div class="footer-info">
+                  <p>Thank you for visiting this website.<br>
+                  If you wish to get in contact with feedback, complaints, or anything else, you will find the details to do so here.</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="form">
+                  <div class="footer-links">
+                  <h4>Contact</h4>
                   <p>
                     QUB Computer Science Building<br>
                     18 Malone Road <br>
@@ -574,62 +608,21 @@
                     Northern Ireland, UK <br>
                     <strong>Phone:</strong> +44 793 201 3252<br>
                     <strong>Email:</strong> <a href="mailto:gturkington05@qub.ac.uk?subject=Regarding NLP for Healthcare Action Conversion">gturkington05@qub.ac.uk</a><br>
+                    <div class="social-links">
+                      <a href="https://twitter.com/QUBelfast" class="twitter"><i class="fa fa-twitter"></i></a>
+                      <a href="https://www.facebook.com/QUBelfast/" class="facebook"><i class="fa fa-facebook"></i></a>
+                      <a href="https://www.instagram.com/qubelfast/" class="instagram"><i class="fa fa-instagram"></i></a>
+                      <a href="http://www.linkedin.com/in/graceturkington" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    </div>
                   </p>
+                  </div>
                 </div>
-
-                <div class="social-links">
-                  <a href="https://twitter.com/QUBelfast" class="twitter"><i class="fa fa-twitter"></i></a>
-                  <a href="https://www.facebook.com/QUBelfast/" class="facebook"><i class="fa fa-facebook"></i></a>
-                  <a href="https://www.instagram.com/qubelfast/" class="instagram"><i class="fa fa-instagram"></i></a>
-                  <a href="http://www.linkedin.com/in/graceturkington" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                </div>
-
               </div>
 
             </div>
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="form">
-
-              <h4>Send me a message</h4>
-              <p>If you do not wish to email or phone, feel free to fill in the form below.</p>
-
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                  <div class="validate"></div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                  <div class="validate"></div>
-                </div>
-
-                <div class="mb-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-
-                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
-              </form>
-
-            </div>
-
           </div>
 
         </div>
-
       </div>
     </div>
 
@@ -642,7 +635,6 @@
         All the links in the footer should remain intact.
         You can delete the links only if you purchased the pro version.
         Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
       -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>

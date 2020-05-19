@@ -740,6 +740,63 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #1bb1dc;
 }
 
+/* Why Us Section
+--------------------------------*/
+#why-us {
+  padding: 60px 0;
+}
+
+@media (max-width: 991px) {
+  #why-us .why-us-content {
+    padding-top: 30px;
+  }
+}
+
+#why-us .why-us-content .features {
+  margin: 0 0 15px 0;
+  padding: 0;
+  transition: 0.3s ease-in-out;
+}
+
+#why-us .why-us-content .features i {
+  font-size: 36px;
+  float: left;
+}
+
+#why-us .why-us-content .features h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 56px;
+  color: #413e66;
+  margin-bottom: 5px;
+}
+
+#why-us .why-us-content .features p {
+  font-size: 16px;
+  margin-left: 56px;
+  color: #555186;
+}
+
+#why-us .counters {
+  padding-top: 40px;
+}
+
+#why-us .counters span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+  display: block;
+  color: #555186;
+}
+
+#why-us .counters p {
+  padding: 0;
+  margin: 0 0 20px 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #8a87b6;
+}
+
 /* Team Section
 --------------------------------*/
 #team {
@@ -810,64 +867,6 @@ h1, h2, h3, h4, h5, h6 {
 #team .member .social i {
   font-size: 18px;
   margin: 0 2px;
-}
-
-
-/* Why Us Section
---------------------------------*/
-#why-us {
-  padding: 60px 0;
-}
-
-@media (max-width: 991px) {
-  #why-us .why-us-content {
-    padding-top: 30px;
-  }
-}
-
-#why-us .why-us-content .features {
-  margin: 0 0 15px 0;
-  padding: 0;
-  transition: 0.3s ease-in-out;
-}
-
-#why-us .why-us-content .features i {
-  font-size: 36px;
-  float: left;
-}
-
-#why-us .why-us-content .features h4 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-left: 56px;
-  color: #413e66;
-  margin-bottom: 5px;
-}
-
-#why-us .why-us-content .features p {
-  font-size: 16px;
-  margin-left: 56px;
-  color: #555186;
-}
-
-#why-us .counters {
-  padding-top: 40px;
-}
-
-#why-us .counters span {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  font-size: 48px;
-  display: block;
-  color: #555186;
-}
-
-#why-us .counters p {
-  padding: 0;
-  margin: 0 0 20px 0;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  color: #8a87b6;
 }
 
 /* Frequently Asked Questions Section
@@ -969,93 +968,6 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 10px;
   color: #555186;
   content: "/";
-}
-
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
-.portfolio-details {
-  padding-top: 40px;
-}
-
-.portfolio-details .portfolio-details-container {
-  position: relative;
-}
-
-.portfolio-details .portfolio-details-carousel {
-  position: relative;
-  z-index: 1;
-}
-
-.portfolio-details .portfolio-details-carousel .owl-nav, .portfolio-details .portfolio-details-carousel .owl-dots {
-  margin-top: 5px;
-  text-align: left;
-}
-
-.portfolio-details .portfolio-details-carousel .owl-dot {
-  display: inline-block;
-  margin: 0 10px 0 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ddd !important;
-}
-
-.portfolio-details .portfolio-details-carousel .owl-dot.active {
-  background-color: #1bb1dc !important;
-}
-
-.portfolio-details .portfolio-info {
-  padding: 30px;
-  position: absolute;
-  right: 0;
-  bottom: -70px;
-  background: #fff;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  z-index: 2;
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li + li {
-  margin-top: 10px;
-}
-
-.portfolio-details .portfolio-description {
-  padding-top: 50px;
-}
-
-.portfolio-details .portfolio-description h2 {
-  width: 50%;
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-description p {
-  padding: 0 0 0 0;
-}
-
-@media (max-width: 992px) {
-  .portfolio-details .portfolio-description h3 {
-    width: 100%;
-  }
-  .portfolio-details .portfolio-info {
-    position: static;
-    margin-top: 30px;
-  }
 }
 
 /*--------------------------------------------------------------
@@ -1163,111 +1075,6 @@ h1, h2, h3, h4, h5, h6 {
 
 #footer .footer-top .footer-contact p {
   line-height: 26px;
-}
-
-#footer .footer-top .footer-newsletter {
-  margin-bottom: 30px;
-}
-
-#footer .footer-top .footer-newsletter input[type="email"] {
-  border: 0;
-  padding: 6px 8px;
-  width: 65%;
-  border: 1px solid #d9dde6;
-}
-
-#footer .footer-top .footer-newsletter input[type="submit"] {
-  background: #1bb1dc;
-  border: 1px solid #1bb1dc;
-  width: 35%;
-  padding: 6px 0;
-  text-align: center;
-  color: #fff;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-#footer .footer-top .footer-newsletter input[type="submit"]:hover {
-  background: #0a98c0;
-}
-
-#footer .php-email-form .validate {
-  display: none;
-  color: red;
-  margin: 0 0 15px 0;
-  font-weight: 400;
-  font-size: 13px;
-}
-
-#footer .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#footer .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#footer .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-#footer .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite;
-}
-
-#footer .php-email-form input, #footer .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  border: 1px solid #dce1ec;
-  font-size: 14px;
-}
-
-#footer .php-email-form input::focus, #footer .php-email-form textarea::focus {
-  background-color: #1bb1dc;
-}
-
-#footer .php-email-form input {
-  padding: 20px 15px;
-}
-
-#footer .php-email-form textarea {
-  padding: 12px 15px;
-}
-
-#footer .php-email-form button[type="submit"] {
-  background: #1bb1dc;
-  border: 0;
-  border-radius: 3px;
-  padding: 8px 30px;
-  color: #fff;
-  transition: 0.3s;
-}
-
-#footer .php-email-form button[type="submit"]:hover {
-  background: #0a98c0;
-  cursor: pointer;
 }
 
 @-webkit-keyframes animate-loading {
