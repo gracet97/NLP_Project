@@ -52,19 +52,23 @@
             <ul>
               <li><a href="#sentiment-analysis">Sentiment Analysis</a></li>
               <li><a href="#entity-analysis">Entity Analysis</a></li>
-              <li class="drop-down"><a href="#personality-analysis">Personality Analysis</a></li>
+              <li><a href="#personality-analysis">Personality Type Analysis</a></li>
             </ul>
           </li>
-          <li class="drop-down"><a href="#about">About</a>
+          <li class="drop-down"><a href="#about">About the Product</a>
             <ul>
               <li><a href="#about">About this Project</a></li>
               <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#why-us">About Queen's</a></li>
-              <li><a href="#team">Team</a></li>
-              <li><a href="#faq">F.A.Q</a></li>
-              <li><a href="#footer">Contact</a></li>
             </ul>
           </li>
+          <li class="drop-down"><a href="#why-us">About Us</a>
+            <ul>
+              <li><a href="#why-us">About Queen's</a></li>
+              <li><a href="#team">Team</a></li>
+            </ul>
+          </li>
+          <li><a href="#faq">F.A.Q</a></li>
+          <li><a href="#footer">Contact</a></li>
         </ul>
       </nav><!-- .main-nav -->
 
@@ -78,7 +82,7 @@
         <div class="col-md-6 intro-info order-md-first order-last">
           <h2><span>Natural Language Processing</span><br>for<br>Healthcare Action Conversion</h2>
           <div>
-            <a href="#services" class="btn-get-started scrollto">Get Started</a>
+            <a id="get-started" href="#services" class="btn-get-started scrollto">Get Started</a>
           </div>
         </div>
         <div class="col-md-6 intro-img order-md-last order-first">
@@ -120,8 +124,16 @@
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="box">
               <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
-              <h4 class="title"><a href="">Personality Analysis</a></h4>
-              <p class="description">A text classifier is used to detect the presence of the Big 5 personality types in the text. These personality types are - Openness, Conscientiousness, Extraversion, Agreeableness and Neuroticism. It provides a list of the personalities of these 5 which are present above the average weighting.</p>
+              <h4 class="title"><a href="">Personality Type Analysis</a></h4>
+              <p class="description">A text classifier is used to detect the presence of the Big 5 personality types in the text. These personality types are - 
+              <ul>
+                  <li><i class="ion-android-checkmark-circle"></i>Openness</li>
+                  <li><i class="ion-android-checkmark-circle"></i>Conscientiousness</li>
+                  <li><i class="ion-android-checkmark-circle"></i>Agreeableness</li>
+                  <li><i class="ion-android-checkmark-circle"></i>Extraversion</li>
+                  <li><i class="ion-android-checkmark-circle"></i>Neuroticism</li>
+                </ul>
+              It provides a list of the personality types of these 5 which are present above the average weighting.</p>
             </div>
           </div>
 
@@ -141,9 +153,9 @@
 
         <center>
           <form id="sentiment">
-            <textarea name="inputSentiment" rows="10" cols="100"></textarea>
+            <textarea id="sentiment-input" name="inputSentiment" rows="10" cols="100"></textarea>
             <br><br>
-            <input type="submit" value="Analyse">
+            <input id="analyse-sentiment" type="submit" value="Analyse for Sentiment">
           </form>
         </center>
         <span><br><span id="sentimentResult"></span></span>
@@ -182,9 +194,9 @@
 
         <center>
           <form id="entity">
-            <textarea name="inputEntity" rows="10" cols="100"></textarea>
+            <textarea id="entity-input" name="inputEntity" rows="10" cols="100"></textarea>
             <br><br>
-            <input type="submit" value="Analyse">
+            <input id="analyse-entity" type="submit" value="Analyse for Entity">
           </form>
         </center>
         <span><br><span id="entityResult"></span></span>
@@ -211,21 +223,21 @@
       </div>
     </section--><!-- Entity Analysis Section -->
 
-    <!-- ======= Personality Analysis Section ======= -->
+    <!-- ======= Personality Type Analysis Section ======= -->
     <section id="personality-analysis" class="services section-bg">
       <div class="container">
 
         <header class="section-header">
           <br>
-          <h3>Personality Analysis</h3>
-          <p>Enter text to be analysed for its personality.</p>
+          <h3>Personality Type Analysis</h3>
+          <p>Enter text to be analysed for its personality types.</p>
         </header>
 
         <center>
           <form id="personality">
-            <textarea name="inputPersonality" rows="10" cols="100"></textarea>
+            <textarea id="personality-input" name="inputPersonality" rows="10" cols="100"></textarea>
             <br><br>
-            <input type="submit" value="Analyse">
+            <input id="analyse-personality" type="submit" value="Analyse for Personality Type">
           </form>
         </center>
         <span><br><span id="personalityResult"></span></span>
@@ -234,7 +246,7 @@
           function submitPersonality(ev) {
             ev.preventDefault();
             var request = new XMLHttpRequest();
-            request.addEventListener('load', showEntity);
+            request.addEventListener('load', showPersonality);
             request.open('POST', {{ url_for('personality')|tojson }});
             request.send(new FormData(this));
           }
@@ -250,7 +262,7 @@
         </script>
 
       </div>
-    </section><!-- Personality Analysis Section -->
+    </section><!-- Personality Type Analysis Section -->
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -274,7 +286,7 @@
               <ul>
                 <li><i class="ion-android-checkmark-circle"></i>Sentiment Analysis</li>
                 <li><i class="ion-android-checkmark-circle"></i>Entity Analysis</li>
-                <li><i class="ion-android-checkmark-circle"></i>Personality Analysis</li>
+                <li><i class="ion-android-checkmark-circle"></i>Personality Type Analysis</li>
               </ul>
             </div>
           </div>
@@ -285,7 +297,7 @@
 
           <div class="col-lg-7 col-md-6">
             <div class="about-content">
-              <p>The personalities assessed within personality analysis are the Big Five personality types, also known as OCEAN, which are as follows -</p>
+              <p>The personality types assessed within the personality type analysis are the Big Five personality types, also known as OCEAN, which are as follows -</p>
               <ul>
                 <li><i class="ion-android-checkmark-circle"></i>Openness</li>
                 <li><i class="ion-android-checkmark-circle"></i>Conscientiousness</li>
@@ -308,7 +320,7 @@
         <div class="row">
 
           <div class="about-content">
-            <p>The goal is that this product will allow healthcare professionals to enter the text of a letter, to then edit it in order to make it appeal to the common case. Regarding sentiment analysis, it is assumed that a letter expressing positive sentiment will allow for an increase in conversion rate. Regarding entity analysis, it is assumed that a letter with clear entities that include the patient's name, and the date and location of the appointment, will allow for an increase in conversion rate. Regarding personality analysis, it is assumed that a letter expressing the average level of each personality trait will allow for an increase in conversion rate.</p>
+            <p>The goal is that this product will allow healthcare professionals to enter the text of a letter, to then edit it in order to make it appeal to the common case. Regarding sentiment analysis, it is assumed that a letter expressing positive sentiment will allow for an increase in conversion rate. Regarding entity analysis, it is assumed that a letter with clear entities that include the patient's name, and the date and location of the appointment, will allow for an increase in conversion rate. Regarding personality type analysis, it is assumed that a letter expressing the average level of each personality trait will allow for an increase in conversion rate.</p>
             <p>This would lead to many benefits, one of the which being budgetary savings due to the increased efficiency of staffs' time. With this money being used elsewhere, and more people attending appointments, the aim is that public healthcare will increase.</p>
           </div>
 
@@ -456,7 +468,7 @@
                   <h4>Grace Turkington</h4>
                   <span>Author, Developer & Tester</span>
                   <div class="social">
-                    <a href="http://www.linkedin.com/in/graceturkington"><i class="fa fa-linkedin"></i></a>
+                    <a id="graceLinkedIn" href="http://www.linkedin.com/in/graceturkington"><i class="fa fa-linkedin"></i></a>
                   </div>
                 </div>
               </div>
@@ -471,9 +483,8 @@
                   <h4>John Bustard</h4>
                   <span>Supervisor within Queen's University</span>
                   <div class="social">
-                    <a href="https://twitter.com/QUBelfast"><i class="fa fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/QUBelfast/"><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
+                    <a id="qubTwitter" href="https://twitter.com/QUBelfast"><i class="fa fa-twitter"></i></a>
+                    <a id="qubFacebook" href="https://www.facebook.com/QUBelfast/"><i class="fa fa-facebook"></i></a>
                   </div>
                 </div>
               </div>
@@ -488,9 +499,8 @@
                   <h4>Marc Nevin</h4>
                   <span>Supervisor within Kainos</span>
                   <div class="social">
-                    <a href="https://twitter.com/KainosSoftware"><i class="fa fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/KainosSoftware/"><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
+                    <a id="kainosTwitter" href="https://twitter.com/KainosSoftware"><i class="fa fa-twitter"></i></a>
+                    <a id="kainosFacebook" href="https://www.facebook.com/KainosSoftware/"><i class="fa fa-facebook"></i></a>
                   </div>
                 </div>
               </div>
@@ -525,28 +535,78 @@
 
         <ul id="faq-list" class="wow fadeInUp">
           <li>
-            <a data-toggle="collapse" class="collapsed" href="#faq1">Question 1 <i class="ion-android-remove"></i></a>
+            <a id="faqQ1" data-toggle="collapse" class="collapsed" href="#faq1">Is there a character limit when entering text to be analysed?<i class="ion-android-remove"></i></a>
             <div id="faq1" class="collapse" data-parent="#faq-list">
               <p>
-                Answer 1
+                No, there is no character limit when entering text to be analysed. 
               </p>
             </div>
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq2" class="collapsed">Question 2 <i class="ion-android-remove"></i></a>
+            <a id="faqQ2" data-toggle="collapse" href="#faq2" class="collapsed">Can analysis only be conducted on a letter?<i class="ion-android-remove"></i></a>
             <div id="faq2" class="collapse" data-parent="#faq-list">
               <p>
-                Answer 2
+                No, analysis can be conducted on any text, including single words.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq3" class="collapsed">Question 3 <i class="ion-android-remove"></i></a>
+            <a id="faqQ3" data-toggle="collapse" href="#faq3" class="collapsed">What is the difference between the 3 analysis types offered - sentiment, entity, and personality type?<i class="ion-android-remove"></i></a>
             <div id="faq3" class="collapse" data-parent="#faq-list">
               <p>
-                Answer 3
+                <p>Sentiment analysis states whether the text is negative, neutral or positive. It provides a score for this rating, in order to show how much the text represents the sentiment returned.<br><br>
+                Entity analysis identifies entities within the text, and states their type. It provides a score for this identification, in order to show how confident the system is that the entity has been identified correctly.<br><br>
+                Personality type analysis detects the presence of the Big 5 personality types in the text. These personality types are - 
+                <ul>
+                  <li><i class="ion-android-checkmark-circle"></i>Openness</li>
+                  <li><i class="ion-android-checkmark-circle"></i>Conscientiousness</li>
+                  <li><i class="ion-android-checkmark-circle"></i>Agreeableness</li>
+                  <li><i class="ion-android-checkmark-circle"></i>Extraversion</li>
+                  <li><i class="ion-android-checkmark-circle"></i>Neuroticism</li>
+                </ul><br>
+                It provides a list of the personality types of these 5 which are present above the average weighting. <br>
+              </p> 
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a id="faqQ4" data-toggle="collapse" href="#faq4" class="collapsed">How do I use these results to edit my letter?<i class="ion-android-remove"></i></a>
+            <div id="faq4" class="collapse" data-parent="#faq-list">
+              <p>Regarding sentiment analysis, it is assumed that a letter expressing positive sentiment will allow for an increase in conversion rate. Therefore, the letter should be edited until it returns a positive sentiment when analysed.<br><br>
+              Regarding entity analysis, it is assumed that a letter with clear entities that include the patient's name, and the date and location of the appointment, will allow for an increase in conversion rate. Therefore, the letter should be edited until all of the entities required are being identified when analysed.<br><br>
+              Regarding personality analysis, it is assumed that a letter expressing the average level of each personality trait will allow for an increase in conversion rate. Therefore, the letter should be edited until it returns none of the personality types as being present over the average weighting.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a id="faqQ5" data-toggle="collapse" href="#faq5" class="collapsed">Is this product only useful for healthcare staff when writing letters to patients?<i class="ion-android-remove"></i></a>
+            <div id="faq5" class="collapse" data-parent="#faq-list">
+              <p>
+                No, there are many different uses of this product. As you can see in the <a href="#testimonials">testimonials</a> section, healthcare staff also use this product when writing letters to peers. 
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a id="faqQ6" data-toggle="collapse" href="#faq6" class="collapsed">Is this product only able to be used by healthcare staff?<i class="ion-android-remove"></i></a>
+            <div id="faq6" class="collapse" data-parent="#faq-list">
+              <p>
+                No, there are many different users of this product. One example of this could be those working in recruitment, or those looking for a new job.<br><br>
+                Sentiment and personality type analysis could be of use throughout correspondence with potential future employees in order to ensure the individual is the right match for the role. It could also be used for individuals to analyse correspondence with future employers, to ensure the job is the right match for them.<br><br>
+                Entity analysis could be of use when writing rejection or offer letters to job applicants. It could actually be of use when writing any text to another individual, whether that is an email or letter, no matter what profession, in order to ensure the template being used has been personalised.  
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a id="faqQ7" data-toggle="collapse" href="#faq7" class="collapsed">How do I get in touch if I have a query that wasn’t answered here?<i class="ion-android-remove"></i></a>
+            <div id="faq7" class="collapse" data-parent="#faq-list">
+              <p>
+                Use the <a href="#contact">contact details</a> provided to get in touch with any additional queries or feedback.
               </p>
             </div>
           </li>
@@ -607,12 +667,12 @@
                     Belfast, BT9 5AF<br>
                     Northern Ireland, UK <br>
                     <strong>Phone:</strong> +44 793 201 3252<br>
-                    <strong>Email:</strong> <a href="mailto:gturkington05@qub.ac.uk?subject=Regarding NLP for Healthcare Action Conversion">gturkington05@qub.ac.uk</a><br>
+                    <strong>Email:</strong> <a id="emailLink" href="mailto:gturkington05@qub.ac.uk?subject=Regarding NLP for Healthcare Action Conversion">gturkington05@qub.ac.uk</a><br>
                     <div class="social-links">
-                      <a href="https://twitter.com/QUBelfast" class="twitter"><i class="fa fa-twitter"></i></a>
-                      <a href="https://www.facebook.com/QUBelfast/" class="facebook"><i class="fa fa-facebook"></i></a>
-                      <a href="https://www.instagram.com/qubelfast/" class="instagram"><i class="fa fa-instagram"></i></a>
-                      <a href="http://www.linkedin.com/in/graceturkington" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                      <a id="qubTwitter2" href="https://twitter.com/QUBelfast" class="twitter"><i class="fa fa-twitter"></i></a>
+                      <a id="qubFacebook2" href="https://www.facebook.com/QUBelfast/" class="facebook"><i class="fa fa-facebook"></i></a>
+                      <a id="qubInstagram" href="https://www.instagram.com/qubelfast/" class="instagram"><i class="fa fa-instagram"></i></a>
+                      <a id="myLinkedIn" href="http://www.linkedin.com/in/graceturkington" class="linkedin"><i class="fa fa-linkedin"></i></a>
                     </div>
                   </p>
                   </div>

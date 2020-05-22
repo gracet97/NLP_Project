@@ -18,11 +18,8 @@ def sentiment():
     text = request.form.get("inputSentiment", 0, type=str)
 
     if (text == ""):
-    	#No text was entered
-    	return(jsonify(result="You must enter text to be analysed for its sentiment."))
-    if (bool(re.search('[a-zA-Z]', text)) == False):
-        #Characters a-z were not found in the text
-        return(jsonify(result="You must enter text to be analysed for its sentiment, not only symbols."))
+    	#No text, or only symbols and/or numbers was entered
+    	return(jsonify(result="You must enter text to be analysed for its personality. Do not leave the text area blank, or containing only symbols and/or numbers."))
     else:
     	comprehend = boto3.client(service_name='comprehend', region_name='us-west-2')
     	return jsonify(result=json.dumps(comprehend.detect_sentiment(Text=text, LanguageCode='en'), sort_keys=True, indent=4))
@@ -31,11 +28,8 @@ def sentiment():
 def entity():
     text = request.form.get("inputEntity", 0, type=str)
     if (text == ""):
-    	#No text was entered
-    	return(jsonify(result="You must enter text to be analysed for its entities."))
-    if (bool(re.search('[a-zA-Z]', text)) == False):
-        #Characters a-z were not found in the text
-        return(jsonify(result="You must enter text to be analysed for its entities, not only symbols."))
+    	#No text, or only symbols and/or numbers was entered
+    	return(jsonify(result="You must enter text to be analysed for its personality. Do not leave the text area blank, or containing only symbols and/or numbers."))
     else:
     	comprehend = boto3.client(service_name='comprehend', region_name='us-west-2')
     	return jsonify(result=json.dumps(comprehend.detect_entities(Text=text, LanguageCode='en'), sort_keys=True, indent=4))
@@ -43,12 +37,9 @@ def entity():
 @app.route("/personality", methods=["POST"])
 def personality():
     text = request.form.get("inputPersonality", 0, type=str)
-    if (text == ""):
-    	#No text was entered
-    	return(jsonify(result="You must enter text to be analysed for its personality."))
-    if (bool(re.search('[a-zA-Z]', text)) == False):
-        #Characters a-z were not found in the text
-        return(jsonify(result="You must enter text to be analysed for its personality, not only symbols."))
+    if ((text == "") or (bool(re.search('[a-zA-Z]', text)) == False)):
+    	#No text, or only symbols and/or numbers was entered
+    	return(jsonify(result="You must enter text to be analysed for its personality. Do not leave the text area blank, or containing only symbols and/or numbers."))
     else:
     	#ENTER
-    	return #ENTER
+    	return(jsonify(result="Personality Type Analysis here."))

@@ -582,6 +582,22 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
 }
 
+
+#services ul {
+  list-style: none;
+  padding: 0;
+}
+
+#services ul li {
+  padding-bottom: 10px;
+}
+
+#services ul li i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #1bb1dc;
+}
+
 /* About Section
 --------------------------------*/
 #about {
@@ -603,21 +619,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   font-size: 22px;
   font-style: italic;
-}
-
-#about .about-content ul {
-  list-style: none;
-  padding: 0;
-}
-
-#about .about-content ul li {
-  padding-bottom: 10px;
-}
-
-#about .about-content ul li i {
-  font-size: 20px;
-  padding-right: 4px;
-  color: #1bb1dc;
 }
 
 #about .about-img {
