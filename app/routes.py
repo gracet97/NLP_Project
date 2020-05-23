@@ -17,9 +17,9 @@ def index():
 def sentiment():
     text = request.form.get("inputSentiment", 0, type=str)
 
-    if (text == ""):
+    if ((text == "") or (bool(re.search('[a-zA-Z]', text)) == False)):
     	#No text, or only symbols and/or numbers was entered
-    	return(jsonify(result="You must enter text to be analysed for its personality. Do not leave the text area blank, or containing only symbols and/or numbers."))
+    	return(jsonify(result="You must enter text to be analysed for its sentiment. Do not leave the text area blank, or containing only symbols and/or numbers."))
     else:
     	comprehend = boto3.client(service_name='comprehend', region_name='us-west-2')
     	return jsonify(result=json.dumps(comprehend.detect_sentiment(Text=text, LanguageCode='en'), sort_keys=True, indent=4))
@@ -27,9 +27,9 @@ def sentiment():
 @app.route("/entity", methods=["POST"])
 def entity():
     text = request.form.get("inputEntity", 0, type=str)
-    if (text == ""):
+    if ((text == "") or (bool(re.search('[a-zA-Z]', text)) == False)):
     	#No text, or only symbols and/or numbers was entered
-    	return(jsonify(result="You must enter text to be analysed for its personality. Do not leave the text area blank, or containing only symbols and/or numbers."))
+    	return(jsonify(result="You must enter text to be analysed for its entities. Do not leave the text area blank, or containing only symbols and/or numbers."))
     else:
     	comprehend = boto3.client(service_name='comprehend', region_name='us-west-2')
     	return jsonify(result=json.dumps(comprehend.detect_entities(Text=text, LanguageCode='en'), sort_keys=True, indent=4))
