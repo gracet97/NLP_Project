@@ -12,12 +12,13 @@ and https://buomsoo-kim.github.io/colab/2018/04/16/Importing-files-from-Google-D
 """
 
 #Upload file
+from google.colab import files
 import pandas as pd
 import io
 
 uploaded = files.upload()
 
-df = pd.read_csv(io.StringIO(uploaded['essays.csv'].decode('utf-8-sig')), header=0)
+df = pd.read_csv(io.StringIO(uploaded['essays.csv'].decode('ISO-8859-1')), header=0)
 
 #
 essays = df['TEXT']
@@ -112,4 +113,3 @@ toBeClassified['cOPN'] = toBeClassified['TEXT'].apply(true_or_false_e)
 
 toBeClassified.to_csv('newfile.csv', index = None, header = True)
 files.download('newfile.csv')
-
