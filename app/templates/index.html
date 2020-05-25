@@ -106,32 +106,33 @@
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
             <div class="box">
               <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
-              <h4 class="title"><a href="">Sentiment Analysis</a></h4>
-              <p class="description">AWS Comprehend is used to analyse the sentiment present in the text. It states whether the text is negative, neutral or positive. It provides a score for this rating, in order to show how much the text represents the sentiment returned.</p>
+              <h4 class="title"><a href="">Sentiment Analysis</a></h4> <!-- Title -->
+              <p class="description">AWS Comprehend is used to analyse the sentiment present in the text. It states whether the text is negative, neutral or positive. It provides a score for this rating, in order to show how much the text represents the sentiment returned.</p> <!-- Description -->
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
             <div class="box">
               <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
-              <h4 class="title"><a href="">Entity Analysis</a></h4>
-              <p class="description">AWS Comprehend is used to identify the entities present in the text. It states what type of entity it has identified. It provides a score for this identification, in order to show how confident the system is that the entity has been identified correctly.</p>
+              <h4 class="title"><a href="">Entity Analysis</a></h4> <!-- Title -->
+              <p class="description">AWS Comprehend is used to identify the entities present in the text. It states what type of entity it has identified. It provides a score for this identification, in order to show how confident the system is that the entity has been identified correctly.</p> <!-- Description -->
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="box">
               <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
-              <h4 class="title"><a href="">Personality Type Analysis</a></h4>
+              <h4 class="title"><a href="">Personality Type Analysis</a></h4> <!-- Title -->
               <p class="description">A text classifier is used to detect the presence of the Big 5 personality types in the text. These personality types are - 
-              <ul>
-                  <li><i class="ion-android-checkmark-circle"></i>Openness</li>
-                  <li><i class="ion-android-checkmark-circle"></i>Conscientiousness</li>
-                  <li><i class="ion-android-checkmark-circle"></i>Agreeableness</li>
-                  <li><i class="ion-android-checkmark-circle"></i>Extraversion</li>
-                  <li><i class="ion-android-checkmark-circle"></i>Neuroticism</li>
-                </ul>
-              It provides a list of the personality types of these 5 which are present above the average weighting.</p>
+                <ul>
+                  <li>Openness</li>
+                  <li>Conscientiousness</li>
+                  <li>Agreeableness</li>
+                  <li>Extraversion</li>
+                  <li>Neuroticism</li>
+                </ul> <!-- List of Big 5/OCEAN personality types -->
+              It provides a list of the personality types of these 5 which are present above the average weighting.
+              </p> <!-- Description -->
             </div>
           </div>
 
@@ -145,18 +146,18 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Sentiment Analysis</h3>
-          <p>Enter text to be analysed for its sentiment.</p>
+          <h3>Sentiment Analysis</h3> <!-- Title -->
+          <p>Enter text to be analysed for its sentiment.</p> <!-- Instruction -->
         </header>
 
         <center>
           <form id="sentiment">
-            <textarea id="sentiment-input" name="inputSentiment" rows="10" cols="100"></textarea>
+            <textarea id="sentiment-input" name="inputSentiment" rows="10" cols="100"></textarea> <!-- Text are to input text to be analysed for its sentiment -->
             <br><br>
-            <input id="analyse-sentiment" type="submit" value="Analyse for Sentiment">
+            <input id="analyse-sentiment" type="submit" value="Analyse for Sentiment"> <!-- Button to click to analyse text for its sentiment -->
           </form>
         </center>
-        <span><br><span id="sentimentResult"></span></span>
+        <span><br><span id="sentimentResult"></span></span> <!-- Output sentiment analysis of text entered -->
        
         <script>
           function submitSentiment(ev) {
@@ -165,17 +166,17 @@
             request.addEventListener('load', showSentiment);
             request.open('POST', {{ url_for('sentiment')|tojson }});
             request.send(new FormData(this));
-          }
+          } //Submit text to be analysed for its sentiment
 
           function showSentiment() {
             var data = JSON.parse(this.responseText);
             var span = document.getElementById('sentimentResult');
             span.innerText = data.result;
-          }
+          } //Show result of sentiment analysis of text entered
 
           var form = document.getElementById('sentiment');
           form.addEventListener('submit', submitSentiment);
-        </script>
+        </script> 
 
       </div>
     </section><!-- Sentiment Analysis Section -->
@@ -186,18 +187,18 @@
 
         <header class="section-header">
           <br>
-          <h3>Entity Analysis</h3>
-          <p>Enter text to be analysed for its entities.</p>
+          <h3>Entity Analysis</h3> <!-- Title -->
+          <p>Enter text to be analysed for its entities.</p> <!-- Instruction -->
         </header>
 
         <center>
           <form id="entity">
-            <textarea id="entity-input" name="inputEntity" rows="10" cols="100"></textarea>
+            <textarea id="entity-input" name="inputEntity" rows="10" cols="100"></textarea> <!-- Text are to input text to be analysed for its entities -->
             <br><br>
-            <input id="analyse-entity" type="submit" value="Analyse for Entity">
+            <input id="analyse-entity" type="submit" value="Analyse for Entity"> <!-- Button to click to analyse text for its entities -->
           </form>
         </center>
-        <span><br><span id="entityResult"></span></span>
+        <span><br><span id="entityResult"></span></span> <!-- Output entity analysis of text entered -->
 
         <script>
           function submitEntity(ev) {
@@ -206,13 +207,13 @@
             request.addEventListener('load', showEntity);
             request.open('POST', {{ url_for('entity')|tojson }});
             request.send(new FormData(this));
-          }
+          } //Submit text to be analysed for its entities
 
           function showEntity() {
             var data = JSON.parse(this.responseText);
             var span = document.getElementById('entityResult');
             span.innerText = data.result;
-          }
+          } //Show result of entity analysis of text entered
 
           var form = document.getElementById('entity');
           form.addEventListener('submit', submitEntity);
@@ -227,18 +228,18 @@
 
         <header class="section-header">
           <br>
-          <h3>Personality Type Analysis</h3>
-          <p>Enter text to be analysed for its personality types.</p>
+          <h3>Personality Type Analysis</h3> <!-- Title -->
+          <p>Enter text to be analysed for its personality types.</p> <!-- Instruction -->
         </header>
 
         <center>
           <form id="personality">
-            <textarea id="personality-input" name="inputPersonality" rows="10" cols="100"></textarea>
+            <textarea id="personality-input" name="inputPersonality" rows="10" cols="100"></textarea> <!-- Text are to input text to be analysed for its personality types -->
             <br><br>
-            <input id="analyse-personality" type="submit" value="Analyse for Personality Type">
+            <input id="analyse-personality" type="submit" value="Analyse for Personality Type"> <!-- Button to click to analyse text for its personality types -->
           </form>
         </center>
-        <span><br><span id="personalityResult"></span></span>
+        <span><br><span id="personalityResult"></span></span> <!-- Output personality type analysis of text entered -->
 
         <script>
           function submitPersonality(ev) {
@@ -247,13 +248,13 @@
             request.addEventListener('load', showPersonality);
             request.open('POST', {{ url_for('personality')|tojson }});
             request.send(new FormData(this));
-          }
+          } //Submit text to be analysed for its personality types
 
           function showPersonality() {
             var data = JSON.parse(this.responseText);
             var span = document.getElementById('personalityResult');
             span.innerText = data.result;
-          }
+          } //Show result of personality type analysis of text entered
 
           var form = document.getElementById('personality');
           form.addEventListener('submit', submitPersonality);
@@ -271,21 +272,22 @@
 
           <div class="col-lg-6 col-md-6">
             <div class="about-content">
-              <h2>About this Project</h2>
-              <h3>The problem being addressed is how the language used in a letter influences the chances of the patient attending the subsequent appointment, and how the language could be adjusted using natural language processing to achieve improved attendance.</h3>
+              <h2>About this Project</h2> <!-- Title -->
+              <h3>The problem being addressed is how the language used in a letter influences the chances of the patient attending the subsequent appointment, and how the language could be adjusted using natural language processing to achieve improved attendance.</h3> <!-- Sub-title -->
             </div>
           </div>
 
+          <!-- Description follows -->
           <div class="col-lg-6 col-md-6">
             <div class="about-content">
               <p>Within the health service there is a considerable gap between the number of people invited to attend an appointment and those who actually turn up. The difference is referred to as the conversion rate. Conversion rates can often be low.</p>
               <p>The solution proposed is a web application that accepts text input in the form of a letter and returns analyse of the letter that could be linked to its expected conversion rate, based on the language used.</p> 
               <p>Natural language processing is used to complete the following analyse on the letter's text -</p>
               <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Sentiment Analysis</li>
-                <li><i class="ion-android-checkmark-circle"></i>Entity Analysis</li>
-                <li><i class="ion-android-checkmark-circle"></i>Personality Type Analysis</li>
-              </ul>
+                <li>Sentiment Analysis</li>
+                <li>Entity Analysis</li>
+                <li>Personality Type Analysis</li>
+              </ul> <!-- List of services offered to analysis text -->
             </div>
           </div>
 
@@ -297,19 +299,19 @@
             <div class="about-content">
               <p>The personality types assessed within the personality type analysis are the Big Five personality types, also known as OCEAN, which are as follows -</p>
               <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Openness</li>
-                <li><i class="ion-android-checkmark-circle"></i>Conscientiousness</li>
-                <li><i class="ion-android-checkmark-circle"></i>Agreeableness</li>
-                <li><i class="ion-android-checkmark-circle"></i>Extraversion</li>
-                <li><i class="ion-android-checkmark-circle"></i>Neuroticism</li>
-              </ul>
-              <p>If you wish to see how you score for each of the Big Five, you can take a free quiz <a href="https://www.truity.com/test/big-five-personality-test">here</a>.</p>
+                <li>Openness</li>
+                <li>Conscientiousness</li>
+                <li>Agreeableness</li>
+                <li>Extraversion</li>
+                <li>Neuroticism</li>
+              </ul> <!-- List of Big 5/OCEAN personality types -->
+              <p>If you wish to see how you score for each of the Big Five, you can take a free quiz <a href="https://www.truity.com/test/big-five-personality-test" target="_blank">here</a>.</p> <!-- Link the user can click to take the Big 5 personality types quiz, opens in a new tab -->
             </div>
           </div>
 
           <div class="col-lg-5 col-md-6">
             <div class="about-img">
-              <img src="static/img/PersonalityTypes.png" alt="">
+              <img src="static/img/PersonalityTypes.png" alt=""> <!-- Image of Big 5 personality types displayed -->
             </div>
           </div>
 
@@ -333,7 +335,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Testimonials</h3>
+          <h3>Testimonials</h3> <!-- Title -->
         </header>
 
         <div class="row justify-content-center">
@@ -342,30 +344,30 @@
 
 
               <div class="testimonial-item">
-                <img src="static/img/FemaleMedic.jpg" class="testimonial-img" alt="">
-                <h3>Sarah Brown</h3>
-                <h4>Physiotherapist</h4>
+                <img src="static/img/FemaleMedic.jpg" class="testimonial-img" alt=""> <!-- Image of female medic displayed -->
+                <h3>Sarah Brown</h3> <!-- Name -->
+                <h4>Physiotherapist</h4> <!-- Profession -->
                 <p>
                   I use this product to analyse letters sent out to patients inviting them to attend appointments at the hospital where I work. There is a 6-month waiting list for these appointments, so myself and my colleagues find it frustrating when patients don't turn up, especially when they do not warn us of this in advance. I analyse letters for sentiment, in order to ensure they are positive. It is too early to confirm yet, but I hope to see more patients attend appointments in the near future.
-                </p>
+                </p> <!-- Description -->
               </div>
 
               <div class="testimonial-item">
-                <img src="static/img/FemaleMedic.jpg" class="testimonial-img" alt="">
-                <h3>Hannah O'Donnell</h3>
-                <h4>GP</h4>
+                <img src="static/img/FemaleMedic.jpg" class="testimonial-img" alt=""> <!-- Image of female medic displayed -->
+                <h3>Hannah O'Donnell</h3> <!-- Name -->
+                <h4>GP</h4> <!-- Profession -->
                 <p>
                   As well as using this product to analyse letters inviting patients to appointments, I also use it to analyse the text of letters before I send them to my colleagues. For example, when writing a referral letter to the local hospital informing them of a patient's need to be seen, I want to ensure the letter is proffessional in nature, not containing a heavy weighting of any personality type. 
-                </p>
+                </p> <!-- Description -->
               </div>
 
               <div class="testimonial-item">
-                <img src="static/img/MaleMedic.jpg" class="testimonial-img" alt="">
-                <h3>Tom Smith</h3>
-                <h4>Nurse</h4>
+                <img src="static/img/MaleMedic.jpg" class="testimonial-img" alt=""> <!-- Image of male medic displayed -->
+                <h3>Tom Smith</h3> <!-- Name -->
+                <h4>Nurse</h4> <!-- Profession -->
                 <p>
                   When writing letters inviting patients to appointments at the surgery where I work, I use a template. This saves me time, as I have less to type out. Before sending the letter, I complete entity analyse on it to ensure I did not forget to enter specific details relating to the patient into the template, such as their name, date of birth, and the date, time and location of their appointment.
-                </p>
+                </p> <!-- Description -->
               </div>
 
             </div>
@@ -380,15 +382,15 @@
       <div class="container-fluid">
 
         <header class="section-header">
-          <h3>About Queen's</h3>
-          <p>I am a final year student of Software Engineering at Queen's University, Belfast.<br>Queen's University is ranked 173rd in the world. It is known for its research-based teaching and graduate prospects.
+          <h3>About Queen's</h3> <!-- Title -->
+          <p>I am a final year student of Software Engineering at Queen's University, Belfast.<br>Queen's University is ranked 173rd in the world. It is known for its research-based teaching and graduate prospects.  <!-- Description -->
         </header>
 
         <div class="row">
 
           <div class="col-lg-6">
             <div class="why-us-img">
-              <img src="static/img/QUB.jpg" alt="" class="img-fluid">
+              <img src="static/img/QUB.jpg" alt="" class="img-fluid"> <!-- Image of Queen's University displayed -->
             </div>
           </div>
 
@@ -396,23 +398,23 @@
             <div class="why-us-content">
               <div class="features wow bounceInUp clearfix">
                 <i class="fa fa-diamond" style="color: #f058dc;"></i>
-                <h4>A Russell Group University</h4>
+                <h4>A Russell Group University</h4> <!-- Key fact -->
                 <p>The Russell Group represents 24 leading UK universities committed to maintaining the very best research, an outstanding teaching and learning experience and unrivalled links with business and the public sector.</p>
-              </div>
+              </div> <!-- Elaborating on key fact -->
 
               <div class="features wow bounceInUp clearfix">
                 <i class="fa fa-object-group" style="color: #ffb774;"></i>
-                <h4>The School of Electronics, Electrical Engineering &amp; Computer Science</h4>
-                <p>Queen’s University has become the first academic institution in Northern Ireland to be awarded a royally-sealed professorship. The rare Regius Professorship is bestowed to recognise exceptional research work. The Queen has awarded the title to the electronics and computer engineering department, which has undertaken pioneering work in the field of cyber-security.</p>
+                <h4>The School of Electronics, Electrical Engineering &amp; Computer Science</h4> <!-- Key fact -->
+                <p>Queen’s University has become the first academic institution in Northern Ireland to be awarded a royally-sealed professorship. The rare Regius Professorship is bestowed to recognise exceptional research work. The Queen has awarded the title to the electronics and computer engineering department, which has undertaken pioneering work in the field of cyber-security.</p> <!-- Elaborating on key fact -->
               </div>
 
               <div class="features wow bounceInUp clearfix">
                 <i class="fa fa-language" style="color: #589af1;"></i>
-                <h4>Software Engineering BEng</h4>
-                <p>This course at Queen's is very dynamic in its content, in order to keep up with the nature of the IT industry. It also contains a placement year, meaning all students have at least 9 months of industrial experience by the time they graduate.</p>
+                <h4>Software Engineering BEng</h4> <!-- Key fact -->
+                <p>This course at Queen's is very dynamic in its content, in order to keep up with the nature of the IT industry. It also contains a placement year, meaning all students have at least 9 months of industrial experience by the time they graduate.</p> <!-- Elaborating on key fact -->
               </div>
 
-              <p>For more information, visit <a href="https://www.qub.ac.uk/Study/Why-Study-at-Queens/rankings-and-reputation/">this link</a></p>
+              <p>For more information, visit <a href="https://www.qub.ac.uk/Study/Why-Study-at-Queens/rankings-and-reputation/" target="_blank">this link</a>.</p> <!-- Link the user can click to read more information about Queen's, opens in a new tab -->
 
             </div>
           </div>
@@ -425,22 +427,22 @@
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">24,955</span>
-            <p>Students</p>
+            <p>Students</p> <!-- Key figure -->
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">200</span>
-            <p>Clubs &amp; Societies</p>
+            <p>Clubs &amp; Societies</p> <!-- Key figure -->
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">140</span>
-            <p>Ranking for Graduate Prospects</p>
+            <p>Ranking for Graduate Prospects</p> <!-- Key figure -->
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">1</span>
-            <p>Ranking for Library Services</p>
+            <p>Ranking for Library Services</p> <!-- Key figure -->
           </div>
 
         </div>
@@ -452,21 +454,21 @@
       <div class="container">
 
         <div class="section-header">
-          <h3>Team</h3>
-          <p>Here is some information about the individuals behind this project.</p>
+          <h3>Team</h3> <!-- Title -->
+          <p>Here is some information about the individuals behind this project.</p> <!-- Introductory sentence -->
         </div>
 
         <div class="row">
 
           <div id="team1" class="col-lg-3 col-md-6 wow fadeInUp">
             <div class="member">
-              <img src="static/img/GraceTurkington.jpg" class="img-fluid" alt="">
+              <img src="static/img/GraceTurkington.jpg" class="img-fluid" alt=""> <!-- Image of team member -->
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Grace Turkington</h4>
-                  <span>Author, Developer & Tester</span>
+                  <h4>Grace Turkington</h4> <!-- Name -->
+                  <span>Author, Developer & Tester</span> <!-- Role in project -->
                   <div class="social">
-                    <a id="graceLinkedIn" href="http://www.linkedin.com/in/graceturkington"><i class="fa fa-linkedin"></i></a>
+                    <a id="graceLinkedIn" href="http://www.linkedin.com/in/graceturkington" target="_blank"><i class="fa fa-linkedin"></i></a> <!-- LinkedIn link -->
                   </div>
                 </div>
               </div>
@@ -475,14 +477,14 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp">
             <div class="member">
-              <img src="static/img/MaleAvatar.png" class="img-fluid" alt="">
+              <img src="static/img/MaleAvatar.png" class="img-fluid" alt=""> <!-- Image of team member -->
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>John Bustard</h4>
-                  <span>Supervisor within Queen's University</span>
+                  <h4>John Bustard</h4> <!-- Name -->
+                  <span>Supervisor within Queen's University</span> <!-- Role in project -->
                   <div class="social">
-                    <a id="qubTwitter" href="https://twitter.com/QUBelfast"><i class="fa fa-twitter"></i></a>
-                    <a id="qubFacebook" href="https://www.facebook.com/QUBelfast/"><i class="fa fa-facebook"></i></a>
+                    <a id="qubTwitter" href="https://twitter.com/QUBelfast" target="_blank"><i class="fa fa-twitter"></i></a> <!-- Twitter link -->
+                    <a id="qubFacebook" href="https://www.facebook.com/QUBelfast/" target="_blank"><i class="fa fa-facebook"></i></a> <!-- Facebook link -->
                   </div>
                 </div>
               </div>
@@ -491,14 +493,14 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp">
             <div class="member">
-              <img src="static/img/MaleAvatar.png" class="img-fluid" alt="">
+              <img src="static/img/MaleAvatar.png" class="img-fluid" alt=""> <!-- Image of team member -->
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Marc Nevin</h4>
-                  <span>Supervisor within Kainos</span>
+                  <h4>Marc Nevin</h4> <!-- Name -->
+                  <span>Supervisor within Kainos</span> <!-- Role in project -->
                   <div class="social">
-                    <a id="kainosTwitter" href="https://twitter.com/KainosSoftware"><i class="fa fa-twitter"></i></a>
-                    <a id="kainosFacebook" href="https://www.facebook.com/KainosSoftware/"><i class="fa fa-facebook"></i></a>
+                    <a id="kainosTwitter" href="https://twitter.com/KainosSoftware" target="_blank"><i class="fa fa-twitter"></i></a> <!-- Twitter link -->
+                    <a id="kainosFacebook" href="https://www.facebook.com/KainosSoftware/" target="_blank"><i class="fa fa-facebook"></i></a> <!-- Facebook link -->
                   </div>
                 </div>
               </div>
@@ -507,11 +509,11 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp">
             <div class="member">
-              <img src="static/img/RoxyTurkington.jpg" class="img-fluid" alt="">
+              <img src="static/img/RoxyTurkington.jpg" class="img-fluid" alt=""> <!-- Image of team member -->
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Roxy Turkington</h4>
-                  <span>Morale Support</span>
+                  <h4>Roxy Turkington</h4> <!-- Name -->
+                  <span>Moral Support</span> <!-- Role in project -->
                 </div>
               </div>
             </div>
@@ -527,85 +529,85 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Frequently Asked Questions</h3>
-          <p>Below are some frequently asked questions that may assist you regarding this product.</p>
+          <h3>Frequently Asked Questions</h3> <!-- Title -->
+          <p>Below are some frequently asked questions that may assist you regarding this product.</p> <!-- Introductory sentence -->
         </header>
 
         <ul id="faq-list" class="wow fadeInUp">
           <li>
-            <a id="faqQ1" data-toggle="collapse" class="collapsed" href="#faq1">Is there a character limit when entering text to be analysed?<i class="ion-android-remove"></i></a>
+            <a id="faqQ1" data-toggle="collapse" class="collapsed" href="#faq1">Is there a character limit when entering text to be analysed?<i class="ion-android-remove"></i></a> <!-- Question -->
             <div id="faq1" class="collapse" data-parent="#faq-list">
               <p>
                 No, there is no character limit when entering text to be analysed. 
-              </p>
+              </p> <!-- Answer -->
             </div>
           </li>
 
           <li>
-            <a id="faqQ2" data-toggle="collapse" href="#faq2" class="collapsed">Can analysis only be conducted on a letter?<i class="ion-android-remove"></i></a>
+            <a id="faqQ2" data-toggle="collapse" href="#faq2" class="collapsed">Can analysis only be conducted on a letter?<i class="ion-android-remove"></i></a> <!-- Question -->
             <div id="faq2" class="collapse" data-parent="#faq-list">
               <p>
                 No, analysis can be conducted on any text, including single words.
-              </p>
+              </p> <!-- Answer -->
             </div>
           </li>
 
           <li>
-            <a id="faqQ3" data-toggle="collapse" href="#faq3" class="collapsed">What is the difference between the 3 analysis types offered - sentiment, entity, and personality type?<i class="ion-android-remove"></i></a>
+            <a id="faqQ3" data-toggle="collapse" href="#faq3" class="collapsed">What is the difference between the 3 analysis types offered - sentiment, entity, and personality type?<i class="ion-android-remove"></i></a> <!-- Question -->
             <div id="faq3" class="collapse" data-parent="#faq-list">
               <p>
                 <p>Sentiment analysis states whether the text is negative, neutral or positive. It provides a score for this rating, in order to show how much the text represents the sentiment returned.<br><br>
                 Entity analysis identifies entities within the text, and states their type. It provides a score for this identification, in order to show how confident the system is that the entity has been identified correctly.<br><br>
                 Personality type analysis detects the presence of the Big 5 personality types in the text. These personality types are - 
                 <ul>
-                  <li><i class="ion-android-checkmark-circle"></i>Openness</li>
-                  <li><i class="ion-android-checkmark-circle"></i>Conscientiousness</li>
-                  <li><i class="ion-android-checkmark-circle"></i>Agreeableness</li>
-                  <li><i class="ion-android-checkmark-circle"></i>Extraversion</li>
-                  <li><i class="ion-android-checkmark-circle"></i>Neuroticism</li>
+                  <li>Openness</li>
+                  <li>Conscientiousness</li>
+                  <li>Agreeableness</li>
+                  <li>Extraversion</li>
+                  <li>Neuroticism</li>
                 </ul><br>
                 It provides a list of the personality types of these 5 which are present above the average weighting. <br>
-              </p> 
+                </p> <!-- Answer --> 
               </p>
             </div>
           </li>
 
           <li>
-            <a id="faqQ4" data-toggle="collapse" href="#faq4" class="collapsed">How do I use these results to edit my letter?<i class="ion-android-remove"></i></a>
+            <a id="faqQ4" data-toggle="collapse" href="#faq4" class="collapsed">How do I use these results to edit my letter?<i class="ion-android-remove"></i></a> <!-- Question -->
             <div id="faq4" class="collapse" data-parent="#faq-list">
               <p>Regarding sentiment analysis, it is assumed that a letter expressing positive sentiment will allow for an increase in conversion rate. Therefore, the letter should be edited until it returns a positive sentiment when analysed.<br><br>
               Regarding entity analysis, it is assumed that a letter with clear entities that include the patient's name, and the date and location of the appointment, will allow for an increase in conversion rate. Therefore, the letter should be edited until all of the entities required are being identified when analysed.<br><br>
               Regarding personality analysis, it is assumed that a letter expressing the average level of each personality trait will allow for an increase in conversion rate. Therefore, the letter should be edited until it returns none of the personality types as being present over the average weighting.
-              </p>
+              </p> <!-- Answer -->
             </div>
           </li>
 
           <li>
-            <a id="faqQ5" data-toggle="collapse" href="#faq5" class="collapsed">Is this product only useful for healthcare staff when writing letters to patients?<i class="ion-android-remove"></i></a>
+            <a id="faqQ5" data-toggle="collapse" href="#faq5" class="collapsed">Is this product only useful for healthcare staff when writing letters to patients?<i class="ion-android-remove"></i></a> <!-- Question -->
             <div id="faq5" class="collapse" data-parent="#faq-list">
               <p>
-                No, there are many different uses of this product. As you can see in the <a href="#testimonials">testimonials</a> section, healthcare staff also use this product when writing letters to peers. 
-              </p>
+                No, there are many different uses of this product. As you can see in the Testimonials section above, healthcare staff also use this product when writing letters to peers. 
+              </p> <!-- Answer -->
             </div>
           </li>
 
           <li>
-            <a id="faqQ6" data-toggle="collapse" href="#faq6" class="collapsed">Is this product only able to be used by healthcare staff?<i class="ion-android-remove"></i></a>
+            <a id="faqQ6" data-toggle="collapse" href="#faq6" class="collapsed">Is this product only able to be used by healthcare staff?<i class="ion-android-remove"></i></a> <!-- Question -->
             <div id="faq6" class="collapse" data-parent="#faq-list">
               <p>
                 No, there are many different users of this product. One example of this could be those working in recruitment, or those looking for a new job.<br><br>
                 Sentiment and personality type analysis could be of use throughout correspondence with potential future employees in order to ensure the individual is the right match for the role. It could also be used for individuals to analyse correspondence with future employers, to ensure the job is the right match for them.<br><br>
                 Entity analysis could be of use when writing rejection or offer letters to job applicants. It could actually be of use when writing any text to another individual, whether that is an email or letter, no matter what profession, in order to ensure the template being used has been personalised.  
-              </p>
+              </p> <!-- Answer -->
             </div>
           </li>
 
           <li>
-            <a id="faqQ7" data-toggle="collapse" href="#faq7" class="collapsed">How do I get in touch if I have a query that wasn’t answered here?<i class="ion-android-remove"></i></a>
+            <a id="faqQ7" data-toggle="collapse" href="#faq7" class="collapsed">How do I get in touch if I have a query that wasn’t answered here?<i class="ion-android-remove"></i></a> <!-- Question -->
             <div id="faq7" class="collapse" data-parent="#faq-list">
               <p>
-                Use the <a href="#contact">contact details</a> provided to get in touch with any additional queries or feedback.
-              </p>
+                Use the contact details provided below to get in touch with any additional queries or feedback.
+              </p> <!-- Answer -->
             </div>
           </li>
 
@@ -633,11 +635,11 @@
 
               <div class="col-sm-6">
                 <div class="footer-links">
-                  <h4>Main Links</h4>
+                  <h4>Main Links</h4> <!-- Title -->
                   <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#">Home</a></li> <!-- Link to Home -->
+                    <li><a href="#about">About</a></li> <!-- Link to About -->
+                    <li><a href="#services">Services</a></li> <!-- Link to Services -->
                   </ul>
                 </div>
               </div>
@@ -650,27 +652,27 @@
 
               <div class="col-sm-6">
                 <div class="footer-info">
-                  <p>Thank you for visiting this website.<br>
+                  <p>Thank you for visiting this website.<br> 
                   If you wish to get in contact with feedback, complaints, or anything else, you will find the details to do so here.</p>
-                </div>
+                </div> <!-- Instructions -->
               </div>
 
               <div class="col-sm-6">
                 <div class="form">
                   <div class="footer-links">
-                  <h4>Contact</h4>
+                  <h4>Contact</h4> <!-- Title -->
                   <p>
                     QUB Computer Science Building<br>
                     18 Malone Road <br>
                     Belfast, BT9 5AF<br>
-                    Northern Ireland, UK <br>
-                    <strong>Phone:</strong> +44 793 201 3252<br>
-                    <strong>Email:</strong> <a id="emailLink" href="mailto:gturkington05@qub.ac.uk?subject=Regarding NLP for Healthcare Action Conversion">gturkington05@qub.ac.uk</a><br>
+                    Northern Ireland, UK <br> <!-- Computer Science Building address -->
+                    <strong>Phone:</strong> +44 793 201 3252<br> <!-- My phone number -->
+                    <strong>Email:</strong> <a id="emailLink" href="mailto:gturkington05@qub.ac.uk?subject=Regarding NLP for Healthcare Action Conversion">gturkington05@qub.ac.uk</a><br> <!-- My email address, when clicked opens an email to this address with the subject stated -->
                     <div class="social-links">
-                      <a id="qubTwitter2" href="https://twitter.com/QUBelfast" class="twitter"><i class="fa fa-twitter"></i></a>
-                      <a id="qubFacebook2" href="https://www.facebook.com/QUBelfast/" class="facebook"><i class="fa fa-facebook"></i></a>
-                      <a id="qubInstagram" href="https://www.instagram.com/qubelfast/" class="instagram"><i class="fa fa-instagram"></i></a>
-                      <a id="myLinkedIn" href="http://www.linkedin.com/in/graceturkington" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                      <a id="qubTwitter2" href="https://twitter.com/QUBelfast" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a> <!-- Twitter Link -->
+                      <a id="qubFacebook2" href="https://www.facebook.com/QUBelfast/" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a> <!-- Facebook Link -->
+                      <a id="qubInstagram" href="https://www.instagram.com/qubelfast/" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a> <!-- Instagram Link -->
+                      <a id="myLinkedIn" href="http://www.linkedin.com/in/graceturkington" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a> <!-- LinkedIn Link -->
                     </div>
                   </p>
                   </div>
