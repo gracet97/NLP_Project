@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+//Tests for Services section of website
 public class services {
 	public static void main(String[] args) {
 		//Creating a driver object referencing WebDriver interface
@@ -18,6 +19,8 @@ public class services {
 	    
 	    //Opening my web page
 	    driver.get("http://127.0.0.1:5000/");
+
+	    //Tests running
 	    
 	    //Text areas
 	    //sentimentTextArea(driver); //PASSED
@@ -61,7 +64,9 @@ public class services {
 	}
 	
 	//Text areas
-	
+
+	//Method to test text area works as expected
+	//by accepting user input
 	public static void sentimentTextArea(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -70,7 +75,9 @@ public class services {
 	    //Writing text in text area
 	    sentimentTextArea.sendKeys("Testing via selenium");
 	}
-	
+
+	//Method to test text area works as expected
+	//by accepting user input
 	public static void entityTextArea(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -79,7 +86,9 @@ public class services {
 	    //Writing text in text area
 	    entityTextArea.sendKeys("Testing via selenium");
 	}
-	
+
+	//Method to test text area works as expected
+	//by accepting user input
 	public static void personalityTextArea(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -91,6 +100,8 @@ public class services {
 	
 	//Buttons
 	
+	//Method to test button as expected
+	//by clicking
 	public static void sentimentButtonBlank(WebDriver driver) 
 	{
 	    //Initialising web element of button 
@@ -99,7 +110,9 @@ public class services {
 	    //Clicking the button
 	    sentimentButton.click();
 	}
-	
+
+	//Method to test button as expected
+	//by clicking
 	public static void entityButtonBlank(WebDriver driver) 
 	{
 	    //Initialising web element of button 
@@ -108,7 +121,9 @@ public class services {
 	    //Clicking the button
 	    entityButton.click();
 	}
-	
+
+	//Method to test button as expected
+	//by clicking
 	public static void personalityButtonBlank(WebDriver driver) 
 	{
 	    //Initialising web element of button 
@@ -119,7 +134,9 @@ public class services {
 	}
 	
 	//Click button with spaces in text area
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void sentimentTextAreaSpaces(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -134,7 +151,9 @@ public class services {
 	    //Clicking the button
 	    sentimentButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void entityTextAreaSpaces(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -149,7 +168,9 @@ public class services {
 	    //Clicking the button
 	    entityButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void personalityTextAreaSpaces(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -166,7 +187,9 @@ public class services {
 	}
     
     //Click button with tabs in text area
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void sentimentTextAreaTab(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -181,7 +204,9 @@ public class services {
 	    //Clicking the button
 	    sentimentButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void entityTextAreaTab(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -196,7 +221,9 @@ public class services {
 	    //Clicking the button
 	    entityButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void personalityTextAreaTab(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -213,7 +240,9 @@ public class services {
 	}
     
     //Click button with numbers in text area
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void sentimentTextAreaNumbers(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -228,7 +257,9 @@ public class services {
 	    //Clicking the button
 	    sentimentButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void entityTextAreaNumbers(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -243,7 +274,9 @@ public class services {
 	    //Clicking the button
 	    entityButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void personalityTextAreaNumbers(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -260,7 +293,9 @@ public class services {
 	}
     
     //Click button with symbols in text area
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void sentimentTextAreaSymbols(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -275,7 +310,9 @@ public class services {
 	    //Clicking the button
 	    sentimentButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void entityTextAreaSymbols(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -290,7 +327,9 @@ public class services {
 	    //Clicking the button
 	    entityButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void personalityTextAreaSymbols(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -307,7 +346,9 @@ public class services {
 	}
     
     //Click button with spaces & tabs & numbers & symbols in text area
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void sentimentTextAreaSpacesTabsNumbersSymbols(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -322,7 +363,9 @@ public class services {
 	    //Clicking the button
 	    sentimentButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void entityTextAreaSpacesTabsNumbersSymbols(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -337,7 +380,9 @@ public class services {
 	    //Clicking the button
 	    entityButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning an invalid text message
 	public static void personalityTextAreaSpacesTabsNumbersSymbols(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -354,7 +399,9 @@ public class services {
 	}
     
     //Click button with valid text area
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning analysis of the text entered
 	public static void sentimentTextAreaValid(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -369,7 +416,9 @@ public class services {
 	    //Clicking the button
 	    sentimentButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning analysis of the text entered
 	public static void entityTextAreaValid(WebDriver driver) 
 	{
 	    //Initialising web element of text area
@@ -384,7 +433,9 @@ public class services {
 	    //Clicking the button
 	    entityButton.click();
 	}
-	
+
+	//Method to test text area and button work together as expected
+	//by accepting user input, clicking, and returning analysis of the text entered
 	public static void personalityTextValid(WebDriver driver) 
 	{
 	    //Initialising web element of text area

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
+//Tests for Team section of website
 public class team {
 	public static void main(String[] args) {
 		//Creating a driver object referencing WebDriver interface
@@ -19,39 +20,33 @@ public class team {
 	    
 	    //Opening my web page
 	    driver.get("http://127.0.0.1:5000/");
-	    
-	    //Social links
+
+	    //Tests running
 	    graceLinkedInLink(driver);
 	    //qubTwitterLink(driver);
 	    //qubFacebookLink(driver); 
 	    //kainosTwitterLink(driver); 
 	    //kainosFacebookLink(driver);
 	}
-	
-	public static void navigateToTeam(WebDriver driver) 
-	{	
-		Actions action = new Actions(driver);
-		
-		WebElement aboutQueens = driver.findElement(By.xpath("//a[@href='#why-us']"));
-		
-		action.moveToElement(aboutQueens).moveToElement(driver.findElement(By.xpath("//a[@href='#team']"))).click().build().perform();
-	}
-	
-	//
-	
+
+
+	//Method to test link to my LinkedIn works as expected
+	//by opening the web address in a new tab
 	public static void graceLinkedInLink(WebDriver driver) 
 	{
-		//navigateToTeam(driver);
-		
+		//Create an action using the driver
 		Actions action = new Actions(driver);
-		
+
+		//Initialising web element of team members
 		WebElement teamMember = driver.findElement(By.id("team1"));
-		
+
+		//The actions moves to the team member item, then finds and clicks on a social media link item
 		action.moveToElement(teamMember).moveToElement(driver.findElement(By.id("graceLinkedIn"))).click().build().perform();
 	}
 	
-	//
-	
+
+	//Method to test link to QUB Twitter works as expected
+	//by opening the web address in a new tab
 	public static void qubTwitterLink(WebDriver driver) 
 	{
 	    //Initialising web element of link
@@ -60,7 +55,9 @@ public class team {
 	    //Clicking the link
 	    qubTwitterLink.click();
 	}
-	
+
+	//Method to test link to QUB Facebook works as expected
+	//by opening the web address in a new tab
 	public static void qubFacebookLink(WebDriver driver) 
 	{
 	    //Initialising web element of link
@@ -70,8 +67,8 @@ public class team {
 	    qubFacebookLink.click();
 	}
 	
-	//
-	
+	//Method to test link to Kainos Twitter works as expected
+	//by opening the web address in a new tab
 	public static void kainosTwitterLink(WebDriver driver) 
 	{
 	    //Initialising web element of link
@@ -80,7 +77,9 @@ public class team {
 	    //Clicking the link
 	    kainosTwitterLink.click();
 	}
-	
+
+	//Method to test link to Kainos Facebook works as expected
+	//by opening the web address in a new tab
 	public static void kainosFacebookLink(WebDriver driver) 
 	{
 	    //Initialising web element of link

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+//Tests for Testimonials section of website
 public class testimonials {
 	public static void main(String[] args) {
 		//Creating a driver object referencing WebDriver interface
@@ -18,5 +19,7 @@ public class testimonials {
 	    
 	    //Opening my web page
 	    driver.get("http://127.0.0.1:5000/");
+	    
+	    //Tests running
 	}
 }
