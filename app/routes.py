@@ -15,14 +15,33 @@ from sklearn.linear_model import LogisticRegression #Imported for personality ty
 from datetime import date #Imported to insert date for personality type analysis
 
 #Sentiment Analysis
-def awsSentimentAnalysis(text, comprehend, languageCode):
+def awsSentimentAnalysis(text, comprehend, languageCode, introText, summaryResult, editLetter, presentingFullAnalysis):
     #Return sentiment analysis of the text using the AWS method detect_sentiment()
-    return json.dumps(comprehend.detect_sentiment(Text=text, LanguageCode=languageCode), sort_keys=True, indent=4)
+    analysis = json.dumps(comprehend.detect_sentiment(Text=text, LanguageCode=languageCode), sort_keys=True, indent=4)
+
+    #If the text expresses positive sentiment, this will be stated in a summary sentence before the full analysis
+    if (bool(re.search('POSITIVE', analysis)) == True): 
+        summaryResult =  summaryResult + "POSITIVE sentiment.\r\nThis is ideal, so the sentiment of this letter doesn't need changed.\r\n\r\n" + presentingFullAnalysis
+    #If the text expresses neautral sentiment, this will be stated in a summary sentence before the full analysis
+    if (bool(re.search('NEUTRAL', analysis)) == True):
+        summaryResult = summaryResult + "NEUTRAL sentiment.\r\n" + editLetter + presentingFullAnalysis
+    #If the text expresses negative sentiment, this will be stated in a summary sentence before the full analysis
+    if (bool(re.search('NEGATIVE', analysis)) == True):
+        summaryResult = summaryResult + "NEGATIVE sentiment.\r\n" + editLetter + presentingFullAnalysis
+    #If the text expresses mixed sentiment, this will be stated in a summary sentence before the full analysis
+    if (bool(re.search('MIXED', analysis)) == True):
+        summaryResult = summaryResult + "MIXED sentiment.\r\n" + editLetter + presentingFullAnalysis
+
+    fullResult = introText + summaryResult + analysis
+
+    return fullResult
 
 #Entity Analysis
-def awsEntityAnalysis(text, comprehend, languageCode):
+def awsEntityAnalysis(text, comprehend, languageCode, introText):
     #Return sentiment analysis of the text using the AWS method detect_entities()
-    return json.dumps(comprehend.detect_entities(Text=text, LanguageCode=languageCode), sort_keys=True, indent=4)
+    analysis = json.dumps(comprehend.detect_entities(Text=text, LanguageCode=languageCode), sort_keys=True, indent=4)
+    result = introText + analysis
+    return result
 
 #Personality Type Analysis
 
@@ -60,17 +79,6 @@ def prework(essays, big5, vectorizer):
         models[str(item.name)].fit(X_train, y_train)
     #Return text classifier models
     return models
-###########
-#Not called
-def toBeClassified(text):
-    return pd.DataFrame({'Date': date.today().strftime("%Y/%m/%d"), 'Text': text, 'Extraversion': [0], 'Neuroticism': [0], 'Agreeableness' : [0], 'Conscientiousness' : [0], 'Openness' : [0]})
-    
-#Not called
-def arrayResults(big5, models, vectorizer, text):
-    for i in range(len(big5)):
-        arrayResults.append(assess(models[big5[i].name], vectorizer, text))
-    return arrayResults
-###########
 
 #Assess the text entered
 def assess(models, vectorizer, message):
@@ -95,6 +103,13 @@ def validateText(textArea):
     invalidTextError = "You must enter text to be analysed. Do not only enter spaces, tabs, symbols and/or numbers."
     #Language code english assigned to a variable for use in AWS methods
     languageCode = 'en'
+    #Text to be displayed before every analysis
+    introText = "The analysis of the text entered is as follows - \r\n\r\n"
+
+    #Text to display sentiment analysis summary of results
+    summaryResult = "The text entered expresses "
+    editLetter = "The letter should be edited to express POSITIVE sentiment to increase the conversion rate of patients turning up to appointments.\r\n\r\n"
+    presentingFullAnalysis = "Here is the full analysis -\r\n\r\n"
 
     #Save the text entered in the text area passed as a parameter to the variable named text
     text = request.form.get(textArea, 0, type=str)
@@ -118,11 +133,11 @@ def validateText(textArea):
             #If sentiment analysis
             if (textArea == "inputSentiment"):
                 #Run method awsSentimentAnalysis
-                return awsSentimentAnalysis(text, comprehend, languageCode)
+                return awsSentimentAnalysis(text, comprehend, languageCode, introText, summaryResult, editLetter, presentingFullAnalysis)
             #If entity analysis
             if (textArea == "inputEntity"):
                 #Run method awsEntityAnalysis
-                return awsEntityAnalysis(text, comprehend, languageCode)
+                return awsEntityAnalysis(text, comprehend, languageCode, introText)
 
         #If personality type analysis
         if (textArea == "inputPersonality"):
@@ -148,7 +163,7 @@ def validateText(textArea):
             #Create a data frame of the text to be classified
             #It contains today's date, the text input by the user, and 0 for each personality type 
             toBeClassified = pd.DataFrame({'Date': date.today().strftime("%Y/%m/%d"), 'Text': text, 'Extraversion': [0], 'Neuroticism': [0], 'Agreeableness' : [0], 'Conscientiousness' : [0], 'Openness' : [0]})
-            
+
             #Create an array of the results for the text input's personality type gradings
             arrayResults = []
             #For the 5 personality types
@@ -168,9 +183,30 @@ def validateText(textArea):
                     
             #Write the classified text and its personality type gradings to the csv file
             writeToCsv(toBeClassified, trainingDataFileName)
-        
+
+            results = ""
+            #Change the array to string form 
+            for i in arrayResults:
+                results = results + str(i)
+
+            #If the text contains over the average amount of openness, this will be stated in a summary sentence before the full analysis
+            if (bool(re.search('Openness: True', results)) == True): 
+                summaryResult = "The text contains over the average amount of openness.\r\nIt should be edited to contain less of this personality type.\r\n\r\n"
+            #If the text contains over the average amount of conscientiousness, this will be stated in a summary sentence before the full analysis
+            if (bool(re.search('Conscientiousness: True', results)) == True):
+                summaryResult = "The text contains over the average amount of conscientiousness.\r\nIt should be edited to contain less of this personality type.\r\n\r\n"
+            #If the text contains over the average amount of extraversion, this will be stated in a summary sentence before the full analysis
+            if (bool(re.search('Extraversion: True', results)) == True):
+                summaryResult = "The text contains over the average amount of extraversion.\r\nIt should be edited to contain less of this personality type.\r\n\r\n"
+            #If the text contains over the average amount of agreeableness, this will be stated in a summary sentence before the full analysis
+            if (bool(re.search('Agreeableness: True', results)) == True): 
+                summaryResult = "The text contains over the average amount of agreeableness.\r\nIt should be edited to contain less of this personality type.\r\n\r\n"
+            #If the text contains over the average amount of neuroticism, this will be stated in a summary sentence before the full analysis
+            if (bool(re.search('Neuroticism: True', results)) == True): 
+                summaryResult = "The text contains over the average amount of neuroticism.\r\nIt should be edited to contain less of this personality type.\r\n\r\n"
+
             #Return the results of each personality type for this text
-            return arrayResults
+            return introText + summaryResult + results 
 
 #Routes
 
