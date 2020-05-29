@@ -3,18 +3,29 @@
 #FROM creates a layer from the ubuntu:18.04 Docker image.
 FROM ubuntu:18.04
 
+#MAINTAINER sets the Author field of the image 
 MAINTAINER Grace Turkington "graceturkington97@gmail.com"
 
-#COPY adds files from your Docker client’s current directory.
+#&& \ isn’t Docker specific, but tells Linux to run the next command as part of the existing line 
+#instead of using multiple RUN directives, you can use just one
+RUN apt-get update -y && \
+    apt-get install -y python-pip python-dev
+
+#COPY copies files from the first parameter - the source . - 
+#to the destination parameter - in this case, /app
+#Copy the requirements.txt file first to leverage Docker cache
+COPY ./requirements.txt /app/requirements.txt
+
+#WORKDIR sets the working directory 
+#All following instructions operate within this directory
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
 COPY . /app
 
-WORKDIR .
+#ENTRYPOINT configures the container to run as an executable
+#Only the last ENTRYPOINT instruction executes
+ENTRYPOINT [ "python" ]
 
-#Inform Docker that the container is listening on the specified port at runtime.
-EXPOSE 8080
-
-#CMD specifies what command to run within the container.
-CMD python NLP_Project.py
-
-#Copy the rest of your app's source code from your host to your image filesystem.
-COPY . .
+CMD [ "app.py" ]
